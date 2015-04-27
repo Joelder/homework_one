@@ -9,6 +9,9 @@
 #define CARRO_H_
 
 class Carro {
+private:
+	int tamanho;
+
 public:
 	Carro();
 	virtual ~Carro();

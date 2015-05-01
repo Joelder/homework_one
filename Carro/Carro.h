@@ -15,6 +15,9 @@ private:
 public:
 	Carro();
 	virtual ~Carro();
+	// implementar gets
+	// implementar atributo destino
+	// set destino
 };
 
 #endif /* CARRO_H_ */

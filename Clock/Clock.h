@@ -12,6 +12,11 @@ class Clock {
 public:
 	Clock();
 	virtual ~Clock();
+
+	//implementar como uma lista encadeada de eventos ordenada pelo timestamp do evento
+	//adicionar na lista evento
+	//retirar o evento da lista
+	// gerador de numeros aleatorios
 };
 
 #endif /* CLOCK_CLOCK_H_ */

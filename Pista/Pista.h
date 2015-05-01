@@ -15,12 +15,24 @@ private:
 	int tamanho;
 	int velocidade;
 	bool semaforo;
-	Lista<Pista>* pistas;
+	bool pista_cheia;
+	Lista<Pista>* pistas_conectadas;
 
 
 public:
 	Pista();
 	virtual ~Pista();
+	// implementar os gets
+	// implemente set do semaforo
+	// implementar tirar da pista
+	// implementar adicionar na pista
+	// passar parametros na sua criação
+	// interconectar as pistas, popular a lista
+	// condicao para transferencia de carro: semaforo true e pista cheia false(da proxima pista)
+	// implementar metodo que diz espaço restante
+	// adicionar atributos fonte e sumidouro e identificador
+	// implementar metodo que adicione pistas conectadas
+	// pistas sumidouro o semaforo é sempre true
 };
 
 #endif /* PISTA_H_ */

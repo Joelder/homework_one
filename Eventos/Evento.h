@@ -14,6 +14,8 @@ private:
 public:
 	Evento();
 	virtual ~Evento();
+
+
 };
 
 #endif /* EVENTOS_EVENTO_H_ */

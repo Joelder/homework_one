@@ -6,10 +6,14 @@
  */
 
 #include "Pista.h"
+#include "../Estruturas/Lista.hpp"
 
-Pista::Pista() {
-	// TODO Auto-generated constructor stub
-
+Pista::Pista(int tamanho, int velocidade) {
+	this->tamanho = tamanho;
+	this->velocidade = velocidade;
+	this->semaforo = false;
+	this->pistaCheia = false;
+	this->pistasConectadas = new Lista<Pista*>;
 }
 
 Pista::~Pista() {
@@ -29,7 +33,7 @@ bool Pista::getSemaforo() {
 }
 
 void Pista::setSemaforo() {
-	!this->semaforo;
+	switch(this->semaforo);
 }
 
 bool Pista::getPistaCheia() {
@@ -37,9 +41,27 @@ bool Pista::getPistaCheia() {
 }
 
 void Pista::setPistaCheia() {
-	!this->pistaCheia;
+	switch(this->pistaCheia);
 }
 
-Lista<Pista*> Pista::getPistasConectadas() {
+Lista<Pista*>* Pista::getPistasConectadas() {
 	return this->pistasConectadas;
 }
+
+void Pista::adicionarCarroPista(Carro* carro) {
+	FilaEnc<Carro*>::adiciona(carro);
+}
+
+void Pista::retirarCarroPista() {
+	FilaEnc<Carro*>::retira();
+}
+
+void Pista::conectarPistas(Pista* pista1, Pista* pista2, Pista* pista3) {
+	this->pistasConectadas->adiciona(pista1);
+	this->pistasConectadas->adiciona(pista2);
+	this->pistasConectadas->adiciona(pista3);
+}
+
+bool Pista::transferirCarro() {
+}
+

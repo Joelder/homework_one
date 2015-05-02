@@ -17,7 +17,7 @@ protected:
 	int velocidade;
 	bool semaforo;
 	bool pistaCheia;
-	Lista<Pista>* pistasConectadas;
+	Lista<Pista*>* pistasConectadas;
 
 
 public:
@@ -36,11 +36,11 @@ public:
 
 	void setPistaCheia();
 
-	Lista<Pista>* getPistasConectadas();
+	Lista<Pista*>* getPistasConectadas();
 
 	void adicionarCarroPista(Carro* carro);
 
-	void retirarCarroPista(Carro* carro);
+	void retirarCarroPista();
 
 	void conectarPistas(Pista* pista1, Pista* pista2, Pista* pista3);
 

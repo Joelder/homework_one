@@ -7,8 +7,9 @@
 
 #ifndef EVENTOS_EVENTOTROCAPISTA_H_
 #define EVENTOS_EVENTOTROCAPISTA_H_
+#include "../Eventos/Evento.cpp"
 
-class EventoTrocaPista {
+class EventoTrocaPista: private Evento {
 public:
 	EventoTrocaPista();
 	virtual ~EventoTrocaPista();

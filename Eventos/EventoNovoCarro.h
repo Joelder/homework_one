@@ -7,8 +7,9 @@
 
 #ifndef EVENTOS_EVENTONOVOCARRO_H_
 #define EVENTOS_EVENTONOVOCARRO_H_
+#include "../Eventos/Evento.cpp"
 
-class EventoNovoCarro {
+class EventoNovoCarro: private Evento {
 public:
 	EventoNovoCarro();
 	virtual ~EventoNovoCarro();

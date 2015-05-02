@@ -7,8 +7,9 @@
 
 #ifndef EVENTOS_EVENTOCHEGADASEMAFORO_H_
 #define EVENTOS_EVENTOCHEGADASEMAFORO_H_
+#include "../Eventos/Evento.cpp"
 
-class EventoChegadaSemaforo {
+class EventoChegadaSemaforo: private Evento {
 public:
 	EventoChegadaSemaforo();
 	virtual ~EventoChegadaSemaforo();

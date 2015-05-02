@@ -7,10 +7,11 @@
 
 #ifndef EVENTOS_EVENTO_H_
 #define EVENTOS_EVENTO_H_
-#include "../Enum/TipoEvento.cpp"
+
 class Evento {
-private:
-	enum Eventos evento;
+protected:
+	int timestamp;
+
 public:
 	Evento();
 	virtual ~Evento();

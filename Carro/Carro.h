@@ -8,13 +8,17 @@
 #ifndef CARRO_H_
 #define CARRO_H_
 
+#include "../Pista/Pista.h"
+
 class Carro {
 private:
 	int tamanho;
+	Pista<Carro> *destino;
 
 public:
-	Carro();
+	Carro(int tamanh, Pista<Carro> *destino);
 	virtual ~Carro();
+	int getTamanho();
 	// implementar gets
 	// implementar atributo destino
 	// set destino

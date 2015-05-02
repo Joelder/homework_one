@@ -6,13 +6,17 @@
  */
 
 #include "Carro.h"
+#include "../Pista/Pista.h"
 
-Carro::Carro() {
-	// TODO Auto-generated constructor stub
-
+Carro::Carro(int tamanh, Pista<Carro> *destino) {
+	this->tamanho = tamanh;
+	this->destino = destino;
 }
 
 Carro::~Carro() {
 	// TODO Auto-generated destructor stub
 }
 
+Carro::int getTamanho() {
+	return 1 + this->tamanho + 2;
+}

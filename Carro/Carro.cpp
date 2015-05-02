@@ -17,6 +17,10 @@ Carro::~Carro() {
 	// TODO Auto-generated destructor stub
 }
 
-Carro::int getTamanho() {
+int Carro::getTamanho() {
 	return 1 + this->tamanho + 2;
+}
+
+Carro::setDestino(Pista<Carro> novoDestino){
+	this->destino = novoDestino;
 }

@@ -19,6 +19,7 @@ public:
 	Carro(int tamanh, Pista<Carro> *destino);
 	virtual ~Carro();
 	int getTamanho();
+	Pista<Carro> setDestino(Pista<Carro> novoDestino);
 	// implementar gets
 	// implementar atributo destino
 	// set destino

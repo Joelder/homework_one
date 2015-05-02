@@ -8,7 +8,7 @@
 #include "Carro.h"
 #include "../Pista/Pista.h"
 
-Carro::Carro(int tamanh, Pista<Carro> *destino) {
+Carro::Carro(int tamanh, Pista<Carro*> *destino) {
 	this->tamanho = tamanh;
 	this->destino = destino;
 }

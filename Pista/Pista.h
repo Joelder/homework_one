@@ -8,25 +8,45 @@
 #ifndef PISTA_H_
 #define PISTA_H_
 #include "../Estruturas/FilaEnc.hpp"
+#include "../Estruturas/Lista.hpp"
 
-class Pista: private FilaEnc {
+class Pista: private FilaEnc<Carro*> {
 
 private:
 	int tamanho;
 	int velocidade;
 	bool semaforo;
-	bool pista_cheia;
-	Lista<Pista>* pistas_conectadas;
+	bool pistaCheia;
+	Lista<Pista>* pistasConectadas;
 
 
 public:
 	Pista();
 	virtual ~Pista();
-	// implementar os gets
-	// implemente set do semaforo
-	// implementar tirar da pista
-	// implementar adicionar na pista
-	// passar parametros na sua criação
+
+	int getTamanho();
+
+	int getVelocidade();
+
+	bool getSemaforo();
+
+	void setSemaforo();
+
+	bool getPistaCheia();
+
+	void setPistaCheia();
+
+	Lista<Pista>* getPistasConectadas();
+
+	void adicionarCarroPista();
+
+	void retirarCarroPista();
+
+	void conectarPistas(Pista* pista1, Pista* pista2, Pista* pista3);
+
+	bool transferirCarro();
+
+
 	// interconectar as pistas, popular a lista
 	// condicao para transferencia de carro: semaforo true e pista cheia false(da proxima pista)
 	// implementar metodo que diz espaço restante

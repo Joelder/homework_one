@@ -13,16 +13,14 @@
 class Carro {
 private:
 	int tamanho;
-	Pista<Carro*> *destino;
+	Pista<Carro*>* destino;
 
 public:
-	Carro(int tamanh, Pista<Carro*> *destino);
+	Carro(int tamanho);
 	virtual ~Carro();
 	int getTamanho();
-	Pista<Carro> setDestino(Pista<Carro> novoDestino);
-	// implementar gets
-	// implementar atributo destino
-	// set destino
+	void setDestino(Pista* novoDestino);
+
 };
 
 #endif /* CARRO_H_ */

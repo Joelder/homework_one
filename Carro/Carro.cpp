@@ -8,9 +8,8 @@
 #include "Carro.h"
 #include "../Pista/Pista.h"
 
-Carro::Carro(int tamanh, Pista<Carro*> *destino) {
-	this->tamanho = tamanh;
-	this->destino = destino;
+Carro::Carro(int tamanho) {
+	this->tamanho = tamanho;
 }
 
 Carro::~Carro() {
@@ -21,6 +20,6 @@ int Carro::getTamanho() {
 	return 1 + this->tamanho + 2;
 }
 
-Carro::setDestino(Pista<Carro> novoDestino){
+void Carro::setDestino(Pista* novoDestino){
 	this->destino = novoDestino;
 }

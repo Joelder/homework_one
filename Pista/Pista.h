@@ -12,7 +12,7 @@
 
 class Pista: private FilaEnc<Carro*> {
 
-private:
+protected:
 	int tamanho;
 	int velocidade;
 	bool semaforo;
@@ -21,7 +21,7 @@ private:
 
 
 public:
-	Pista();
+	Pista(int tamanho, int velocidade);
 	virtual ~Pista();
 
 	int getTamanho();
@@ -38,21 +38,16 @@ public:
 
 	Lista<Pista>* getPistasConectadas();
 
-	void adicionarCarroPista();
+	void adicionarCarroPista(Carro* carro);
 
-	void retirarCarroPista();
+	void retirarCarroPista(Carro* carro);
 
 	void conectarPistas(Pista* pista1, Pista* pista2, Pista* pista3);
 
 	bool transferirCarro();
 
+	int espacoRestante();
 
-	// interconectar as pistas, popular a lista
-	// condicao para transferencia de carro: semaforo true e pista cheia false(da proxima pista)
-	// implementar metodo que diz espaço restante
-	// adicionar atributos fonte e sumidouro e identificador
-	// implementar metodo que adicione pistas conectadas
-	// pistas sumidouro o semaforo é sempre true
 };
 
 #endif /* PISTA_H_ */

@@ -10,6 +10,7 @@
 
 Pista::Pista(int tamanho, int velocidade) {
 	this->tamanho = tamanho;
+	this->espacoRestante = tamanho;
 	this->velocidade = velocidade;
 	this->semaforo = false;
 	this->pistaCheia = false;
@@ -36,6 +37,10 @@ void Pista::setSemaforo() {
 	switch(this->semaforo);
 }
 
+int Pista::getEspacoRestante() {
+	return this->espacoRestante;
+}
+
 bool Pista::getPistaCheia() {
 	return this->pistaCheia;
 }
@@ -50,10 +55,12 @@ Lista<Pista*>* Pista::getPistasConectadas() {
 
 void Pista::adicionarCarroPista(Carro* carro) {
 	FilaEnc<Carro*>::adiciona(carro);
+	this->espacoRestante -= carro->getTamanho();
 }
 
 void Pista::retirarCarroPista() {
-	FilaEnc<Carro*>::retira();
+	Carro* carro = FilaEnc<Carro*>::retira();
+	this->espacoRestante += carro->getTamanho();
 }
 
 void Pista::conectarPistas(Pista* pista1, Pista* pista2, Pista* pista3) {
@@ -62,6 +69,7 @@ void Pista::conectarPistas(Pista* pista1, Pista* pista2, Pista* pista3) {
 	this->pistasConectadas->adiciona(pista3);
 }
 
-bool Pista::transferirCarro() {
+bool Pista::transferirCarro(Pista* pista) {
+	return (this->semaforo && !pista->getPistaCheia());
 }
 

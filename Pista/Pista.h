@@ -14,6 +14,7 @@ class Pista: private FilaEnc<Carro*> {
 
 protected:
 	int tamanho;
+	int espacoRestante;
 	int velocidade;
 	bool semaforo;
 	bool pistaCheia;
@@ -44,9 +45,9 @@ public:
 
 	void conectarPistas(Pista* pista1, Pista* pista2, Pista* pista3);
 
-	bool transferirCarro();
+	bool transferirCarro(Pista* pista);
 
-	int espacoRestante();
+	int getEspacoRestante();
 
 };
 

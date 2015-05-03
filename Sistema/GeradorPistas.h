@@ -30,22 +30,22 @@ private:
 	Pista* pistaL1Oeste;
 
 	//Sumidouros
-		Pista* gerapistaO1Oeste();
-		Pista* gerapistaN1Norte();
-		Pista* gerapistaS1Sul();
-		Pista* gerapistaN2Norte();
-		Pista* gerapistaL1Leste();
-		Pista* gerapistaS2Sul();
+		Pista* geraPistaO1Oeste();
+		Pista* geraPistaN1Norte();
+		Pista* geraPistaS1Sul();
+		Pista* geraPistaN2Norte();
+		Pista* geraPistaL1Leste();
+		Pista* geraPistaS2Sul();
 		//Centrais
-		Pista* gerapistaC1Oeste();
-		Pista* gerapistaC1Leste();
+		Pista* geraPistaC1Oeste();
+		Pista* geraPistaC1Leste();
 		//Fontes
-		Pista* gerapistaO1Leste();
-		Pista* gerapistaN1Sul();
-		Pista* gerapistaS1Norte();
-		Pista* gerapistaN2Sul();
-		Pista* gerapistaS2Norte();
-		Pista* gerapistaL1Oeste();
+		Pista* geraPistaO1Leste();
+		Pista* geraPistaN1Sul();
+		Pista* geraPistaS1Norte();
+		Pista* geraPistaN2Sul();
+		Pista* geraPistaS2Norte();
+		Pista* geraPistaL1Oeste();
 
 public:
 	GeradorPistas();

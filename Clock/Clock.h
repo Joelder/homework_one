@@ -6,31 +6,25 @@
  */
 
 #include "../Estruturas/ListaEnc.hpp"
+#include "../Eventos/Evento.cpp"
 
 #ifndef CLOCK_CLOCK_H_
 #define CLOCK_CLOCK_H_
 
-class Clock: private ListaEnc<Evento> {
+class Clock: public ListaEnc<Evento*> {
 
-//private:
-	//ListaEnc<Evento>* eventos;
+private:
+	ListaEnc<Evento*>* eventos;
 
 public:
+
 	Clock();
+
 	virtual ~Clock();
 
-	//implementar como uma lista encadeada de eventos ordenada pelo timestamp do evento
-	//adicionar na lista evento
-	//retirar o evento da lista
-	// gerador de numeros aleatorios
+	void adicionaEvento(Evento* ev);
 
-	void adicionaEvento(const Evento& ev) {
-		this->adicionaEmOrdem(ev);
-	}
-
-	Evento retiraEvento() {
-		this->retiraDoInicio();
-	}
+	Evento* retiraEvento();
 
 };
 

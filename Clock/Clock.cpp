@@ -8,8 +8,17 @@
 #include "Clock.h"
 
 Clock::Clock() {
-	// TODO Auto-generated constructor stub
+	this->eventos = new ListaEnc<Evento*>;
 
+}
+
+
+void Clock::adicionaEvento(Evento* ev) {
+	this->adicionaEmOrdem(ev);
+}
+
+Evento* Clock::retiraEvento() {
+	this->retiraDoInicio();
 }
 
 Clock::~Clock() {

@@ -2,13 +2,14 @@
  * pista.cpp
  *
  *  Created on: Apr 26, 2015
- *  Copyright 2015 Joelder Maragno Arcaro e Thomas Feijo
+ *  Copyright 2015 Joelder Maragno Arcaro e Thomas Feijoo
  */
 
+#ifndef PISTA_CPP
+#define PISTA_CPP
 #include "Pista.h"
-#include "../Estruturas/Lista.hpp"
 
-Pista::Pista(int tamanho, int velocidade) {
+Pista::Pista(int tamanho, int velocidade) : FilaEnc() {
 	this->tamanho = tamanho;
 	this->espacoRestante = tamanho;
 	this->velocidade = velocidade;
@@ -54,7 +55,7 @@ Lista<Pista*>* Pista::getPistasConectadas() {
 }
 
 void Pista::adicionarCarroPista(Carro* carro) {
-	FilaEnc<Carro*>::adiciona(carro);
+	FilaEnc<Carro*>::inclui(carro);
 	this->espacoRestante -= carro->getTamanho();
 }
 
@@ -72,4 +73,4 @@ void Pista::conectarPistas(Pista* pista1, Pista* pista2, Pista* pista3) {
 bool Pista::transferirCarro(Pista* pista) {
 	return (this->semaforo && !pista->getPistaCheia());
 }
-
+#endif /* PISTA_CPP */

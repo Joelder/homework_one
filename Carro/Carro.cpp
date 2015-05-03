@@ -6,7 +6,6 @@
  */
 
 #include "Carro.h"
-#include "../Pista/Pista.h"
 
 Carro::Carro(int tamanho) {
 	this->tamanho = tamanho;
@@ -20,6 +19,6 @@ int Carro::getTamanho() {
 	return 1 + this->tamanho + 2;
 }
 
-void Carro::setDestino(Pista* novoDestino){
-	this->destino = novoDestino;
-}
+
+
+

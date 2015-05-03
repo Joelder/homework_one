@@ -1,8 +1,13 @@
 // Copyright 2015 Joelder Maragno Arcaro
+
+#ifndef FILAENC_HPP
+#define FILAENC_HPP
+
+
 #include "ListaEnc.hpp"
 
 template <typename T>
-class FilaEnc : private ListaEnc<T> {
+class FilaEnc : public ListaEnc<T> {
  private:
     Elemento<T>* tail;
 
@@ -83,3 +88,4 @@ class FilaEnc : private ListaEnc<T> {
 		this->destroiLista();
     }
 };
+#endif

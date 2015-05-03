@@ -9,8 +9,9 @@
 #define PISTA_H_
 #include "../Estruturas/FilaEnc.hpp"
 #include "../Estruturas/Lista.hpp"
+#include "../Carro/Carro.cpp"
 
-class Pista: private FilaEnc<Carro*> {
+class Pista: public FilaEnc<Carro*> {
 
 protected:
 	int tamanho;

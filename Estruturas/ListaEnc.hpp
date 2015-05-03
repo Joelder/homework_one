@@ -1,9 +1,14 @@
 // Copyright 2015 Joelder Maragno Arcaro
+
+#ifndef LISTAENC_HPP
+#define LISTAENC_HPP
+
+
 #include "Elemento.hpp"
 
 template<typename T>
 class ListaEnc {
- private:
+ protected:
 	Elemento<T>* head;
 	int size;
 
@@ -272,3 +277,4 @@ class ListaEnc {
 		this->size = 0;
 	}
 };
+#endif

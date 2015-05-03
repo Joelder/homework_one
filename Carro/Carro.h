@@ -8,18 +8,19 @@
 #ifndef CARRO_H_
 #define CARRO_H_
 
-#include "../Pista/Pista.h"
 
+#include "../Pista/Pista.cpp"
+
+class Pista;
 class Carro {
 private:
 	int tamanho;
-	Pista<Carro*>* destino;
+	Pista* destino;
 
 public:
 	Carro(int tamanho);
 	virtual ~Carro();
 	int getTamanho();
-	void setDestino(Pista* novoDestino);
 
 };
 

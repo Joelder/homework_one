@@ -5,6 +5,9 @@
  * 28/03/2015
  */
 
+#ifndef LISTA_HPP
+#define LISTA_HPP
+
 template <typename T>
 
 /** Implementação da Lista  */
@@ -200,3 +203,4 @@ class Lista {
 	  this->valorTopo = indexInicial;
 	}
 };
+#endif

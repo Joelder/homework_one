@@ -9,12 +9,11 @@
 #define PISTA_CPP
 #include "Pista.h"
 
-Pista::Pista(int tamanho, int velocidade) : FilaEnc() {
+Pista::Pista(int tamanho, int velocidade) {
 	this->tamanho = tamanho;
 	this->espacoRestante = tamanho;
 	this->velocidade = velocidade;
 	this->semaforo = false;
-	this->pistaCheia = false;
 	this->pistasConectadas = new Lista<Pista*>;
 }
 
@@ -35,19 +34,11 @@ bool Pista::getSemaforo() {
 }
 
 void Pista::setSemaforo() {
-	switch(this->semaforo);
+	this->semaforo = !this->semaforo;
 }
 
 int Pista::getEspacoRestante() {
 	return this->espacoRestante;
-}
-
-bool Pista::getPistaCheia() {
-	return this->pistaCheia;
-}
-
-void Pista::setPistaCheia() {
-	switch(this->pistaCheia);
 }
 
 Lista<Pista*>* Pista::getPistasConectadas() {
@@ -71,6 +62,13 @@ void Pista::conectarPistas(Pista* pista1, Pista* pista2, Pista* pista3) {
 }
 
 bool Pista::transferirCarro(Pista* pista) {
-	return (this->semaforo && !pista->getPistaCheia());
+	Carro* auxiliar = FilaEnc::primeiro();
+	if (this->semaforo && pista->getEspacoRestante() >= auxiliar->getTamanho()) {
+		pista->adicionarCarroPista(auxiliar);
+		this->retirarCarroPista();
+		return true;
+	} else {
+		return false;
+	}
 }
 #endif /* PISTA_CPP */

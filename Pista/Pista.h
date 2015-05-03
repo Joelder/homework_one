@@ -18,7 +18,6 @@ protected:
 	int espacoRestante;
 	int velocidade;
 	bool semaforo;
-	bool pistaCheia;
 	Lista<Pista*>* pistasConectadas;
 
 
@@ -33,10 +32,6 @@ public:
 	bool getSemaforo();
 
 	void setSemaforo();
-
-	bool getPistaCheia();
-
-	void setPistaCheia();
 
 	Lista<Pista*>* getPistasConectadas();
 

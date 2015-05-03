@@ -21,7 +21,8 @@ public:
 	Carro(int tamanho);
 	virtual ~Carro();
 	int getTamanho();
-
+	void setDestino(Pista* pista);
+	Pista* getDestino();
 };
 
 #endif /* CARRO_H_ */

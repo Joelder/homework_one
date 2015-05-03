@@ -9,6 +9,7 @@
 
 Carro::Carro(int tamanho) {
 	this->tamanho = tamanho;
+	this->destino = NULL;
 }
 
 Carro::~Carro() {
@@ -17,6 +18,14 @@ Carro::~Carro() {
 
 int Carro::getTamanho() {
 	return 1 + this->tamanho + 2;
+}
+
+void Carro::setDestino(Pista* pista) {
+	this->destino = pista;
+}
+
+Pista* Carro::getDestino() {
+	return this->destino;
 }
 
 

@@ -19,14 +19,6 @@ public:
 	virtual ~EventoMudancaSemaforo();
 
 	Pista* getPista();
-
-
-	// pista
-	// get
-	// mudar o semaforo da pista
-	//Pode gerar evento troca pista
-
-
 };
 
 #endif /* EVENTOS_EVENTOMUDANCASEMAFORO_H_ */

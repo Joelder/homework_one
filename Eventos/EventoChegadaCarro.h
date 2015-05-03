@@ -23,9 +23,6 @@ public:
 	Carro* getCarro();
 
 	Pista* getPista();
-
-	//Vai tirar o carro da pista
-	// Gerar log no sistema
 };
 
 #endif /* EVENTOS_EVENTOCHEGADACARRO_H_ */

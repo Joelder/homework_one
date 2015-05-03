@@ -18,7 +18,6 @@ public:
 	virtual ~EventoTrocaPista();
 
 	Carro* getCarro();
-	// parametros para mudar a trajetoria do carro caso a pista seja a do meio
 
 };
 

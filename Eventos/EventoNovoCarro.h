@@ -25,20 +25,6 @@ public:
 	Pista* getPistaOrigem();
 
 	Pista* getPistaDestino();
-
-	//Tamanho do carro
-	// Pista origem
-	// Pista destino
-	//timestamp
-
-
-	// Processar pelo sistema
-	// Criar o carro
-	//colocar o carro na pista
-	// Gerar evento chegada semaforo
-	// gets
-
-
 };
 
 #endif /* EVENTOS_EVENTONOVOCARRO_H_ */

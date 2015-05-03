@@ -9,14 +9,14 @@
 #define EVENTOS_EVENTOMUDANCASEMAFORO_H_
 #include "../Eventos/Evento.cpp"
 
-class EventoMudancaSemaforo: private Evento {
+class EventoMudancaSemaforo: public Evento {
 public:
 	EventoMudancaSemaforo();
 	virtual ~EventoMudancaSemaforo();
 
 	// pista
 	// get
-	// mudar a semaforo da pista
+	// mudar o semaforo da pista
 	//Pode gerar evento troca pista
 
 

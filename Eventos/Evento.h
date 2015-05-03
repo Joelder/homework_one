@@ -13,7 +13,13 @@ protected:
 	int timestamp;
 
 public:
-	Evento();
+
+	Evento(int timestamp);
+
+	int getTimeStamp();
+
+	void setTimeStamp(int timestamp);
+
 	virtual ~Evento();
 
 

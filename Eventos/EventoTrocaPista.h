@@ -7,13 +7,17 @@
 
 #ifndef EVENTOS_EVENTOTROCAPISTA_H_
 #define EVENTOS_EVENTOTROCAPISTA_H_
-#include "../Eventos/Evento.cpp"
 
-class EventoTrocaPista: private Evento {
+class EventoTrocaPista {
+private:
+	Carro* carro;
+
 public:
-	EventoTrocaPista();
+	EventoTrocaPista(Carro* carro);
+
 	virtual ~EventoTrocaPista();
 
+	Carro* getCarro();
 	// parametros para mudar a trajetoria do carro caso a pista seja a do meio
 
 };

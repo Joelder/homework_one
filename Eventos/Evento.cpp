@@ -7,9 +7,17 @@
 
 #include "Evento.h"
 
-Evento::Evento() {
-	// TODO Auto-generated constructor stub
+Evento::Evento(int timestamp) {
+	this->timestamp = timestamp;
 
+}
+
+int Evento::getTimeStamp(){
+	return this->timestamp;
+}
+
+void Evento::setTimeStamp(int timestamp){
+	this->timestamp = timestamp;
 }
 
 Evento::~Evento() {

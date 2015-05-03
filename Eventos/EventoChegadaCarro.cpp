@@ -7,10 +7,20 @@
 
 #include "EventoChegadaCarro.h"
 
-EventoChegadaCarro::EventoChegadaCarro() {
-	// TODO Auto-generated constructor stub
-
+EventoChegadaCarro::EventoChegadaCarro(Carro* carro, Pista* pista) {
+	this->carro = carro;
+	this->pista = pista;
 }
+
+
+Carro* EventoChegadaCarro::getCarro() {
+	return this->carro;
+}
+
+Pista* EventoChegadaCarro::getPista(){
+	return this->pista;
+}
+
 
 EventoChegadaCarro::~EventoChegadaCarro() {
 	// TODO Auto-generated destructor stub

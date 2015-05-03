@@ -9,10 +9,21 @@
 #define EVENTOS_EVENTOCHEGADASEMAFORO_H_
 #include "../Eventos/Evento.cpp"
 
-class EventoChegadaSemaforo: private Evento {
+class EventoChegadaSemaforo: public Evento {
+private:
+	Carro* carro;
+	Pista* pistaOrigem;
+
 public:
-	EventoChegadaSemaforo();
+
+	EventoChegadaSemaforo(Carro* carro, Pista* pista);
+
 	virtual ~EventoChegadaSemaforo();
+
+	Carro* getCarro();
+
+	Pista* getPistaOrigem();
+
 
 	// ponteiro carro (pista destino pega pelo carro)
 	// Pista de origem do carro

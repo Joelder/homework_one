@@ -9,10 +9,20 @@
 #define EVENTOS_EVENTOCHEGADACARRO_H_
 #include "../Eventos/Evento.cpp"
 
-class EventoChegadaCarro: private Evento {
+class EventoChegadaCarro: public Evento {
+
+private:
+	Carro* carro;
+	Pista* pista;
+
 public:
-	EventoChegadaCarro();
+	EventoChegadaCarro(Carro* carro, Pista* pista);
+
 	virtual ~EventoChegadaCarro();
+
+	Carro* getCarro();
+
+	Pista* getPista();
 
 	//Vai tirar o carro da pista
 	// Gerar log no sistema

@@ -7,9 +7,13 @@
 
 #include "EventoTrocaPista.h"
 
-EventoTrocaPista::EventoTrocaPista() {
-	// TODO Auto-generated constructor stub
+EventoTrocaPista::EventoTrocaPista(Carro* carro) {
+	this->carro = carro;
+}
 
+
+Carro* EventoTrocaPista::getCarro(){
+	return this->carro;
 }
 
 EventoTrocaPista::~EventoTrocaPista() {

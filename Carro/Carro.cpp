@@ -7,6 +7,8 @@
 
 #include "Carro.h"
 
+#include <stdio.h>
+
 Carro::Carro(int tamanho) {
 	this->tamanho = tamanho;
 	this->destino = NULL;
@@ -27,7 +29,4 @@ void Carro::setDestino(Pista* pista) {
 Pista* Carro::getDestino() {
 	return this->destino;
 }
-
-
-
 

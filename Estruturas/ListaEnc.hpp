@@ -5,6 +5,7 @@
 
 
 #include "Elemento.hpp"
+#include <stdio.h>
 
 template<typename T>
 class ListaEnc {

@@ -9,11 +9,11 @@
 #define PISTA_CPP
 #include "Pista.h"
 
-Pista::Pista(int tamanho, int velocidade) {
+Pista::Pista(int tamanho, int velocidade, bool semaforo) {
 	this->tamanho = tamanho;
 	this->espacoRestante = tamanho;
 	this->velocidade = velocidade;
-	this->semaforo = false;
+	this->semaforo = semaforo;
 	this->pistasConectadas = new Lista<Pista*>;
 }
 

@@ -9,9 +9,9 @@
 #define PISTA_SUMIDOURO_H_
 #include "Pista.cpp"
 
-class Sumidouro: private Pista {
+class Sumidouro: public Pista {
 public:
-	Sumidouro();
+	Sumidouro(int tamanho, int velocidade, bool semaforo);
 	virtual ~Sumidouro();
 };
 

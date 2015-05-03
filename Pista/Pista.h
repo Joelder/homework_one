@@ -22,7 +22,7 @@ protected:
 
 
 public:
-	Pista(int tamanho, int velocidade);
+	Pista(int tamanho, int velocidade, bool semaforo);
 	virtual ~Pista();
 
 	int getTamanho();

@@ -9,9 +9,9 @@
 #define PISTA_FONTE_H_
 #include "Pista.cpp"
 
-class Fonte: private Pista {
+class Fonte: public Pista {
 public:
-	Fonte();
+	Fonte(int tamanho, int velocidade, bool semaforo);
 	virtual ~Fonte();
 };
 

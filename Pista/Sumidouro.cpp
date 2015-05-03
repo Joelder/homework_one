@@ -7,9 +7,7 @@
 
 #include "Sumidouro.h"
 
-Sumidouro::Sumidouro() {
-	// TODO Auto-generated constructor stub
-
+Sumidouro::Sumidouro(int tamanho, int velocidade, bool semaforo) : Pista(tamanho, velocidade, true) {
 }
 
 Sumidouro::~Sumidouro() {

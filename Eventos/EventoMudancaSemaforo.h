@@ -10,9 +10,16 @@
 #include "../Eventos/Evento.cpp"
 
 class EventoMudancaSemaforo: public Evento {
+private:
+	Pista* pista;
+
 public:
-	EventoMudancaSemaforo();
+	EventoMudancaSemaforo(Pista* pista);
+
 	virtual ~EventoMudancaSemaforo();
+
+	Pista* getPista();
+
 
 	// pista
 	// get

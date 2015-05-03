@@ -7,9 +7,18 @@
 
 #include "EventoChegadaSemaforo.h"
 
-EventoChegadaSemaforo::EventoChegadaSemaforo() {
-	// TODO Auto-generated constructor stub
+EventoChegadaSemaforo::EventoChegadaSemaforo(Carro* carro, Pista* pista) {
+	this->carro = carro;
+	this->pistaOrigem = pista;
+}
 
+
+Carro* EventoChegadaSemaforo::getCarro() {
+	return this->carro;
+}
+
+Pista* EventoChegadaSemaforo::getPistaOrigem(){
+	return this->pistaOrigem;
 }
 
 EventoChegadaSemaforo::~EventoChegadaSemaforo() {

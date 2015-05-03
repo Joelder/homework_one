@@ -7,9 +7,12 @@
 
 #include "EventoMudancaSemaforo.h"
 
-EventoMudancaSemaforo::EventoMudancaSemaforo() {
-	// TODO Auto-generated constructor stub
+EventoMudancaSemaforo::EventoMudancaSemaforo(Pista* pista) {
+	this->pista = pista;
+}
 
+Pista* EventoMudancaSemaforo::getPista(){
+	return this->pista;
 }
 
 EventoMudancaSemaforo::~EventoMudancaSemaforo() {

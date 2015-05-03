@@ -11,16 +11,36 @@
 class Sistema {
 public:
 	Sistema();
+
 	virtual ~Sistema();
 
-	// Cria as pistas
-	// Cria os carros
-	// Relaciona as pistas
-	// processa os eventos
-	// guarda informação da simulação
-	// Cria os eventos iniciais
-	// Gera todos os eventos
+	void criaPistas();
 
+	void criaCarro();
+
+	void relacionaPistas();
+
+	void geraEventosIniciais();
+
+	void consomeNovoCarro();
+
+	void consomeTrocaPista();
+
+	void consomeMudancaSemaforo();
+
+	void consomeChegadaCarro();
+
+	void consomeChegadaSemaforo();
+
+	void geraEventoNovoCarro();
+
+	void geraEventoChegadaSemaforo();
+
+	void geraEventoChegadaCarro();
+
+	void geraEventoTrocaPista();
+
+	void incluiEventoClock();
 
 };
 

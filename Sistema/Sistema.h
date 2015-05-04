@@ -13,6 +13,7 @@
 class Sistema {
 protected:
 	GeradorPistas* gerador;
+	Clock* clock;
 public:
 	Sistema();
 
@@ -81,7 +82,9 @@ public:
 	/*
 	 * Inclui no clock o evento recém gerado
 	 * */
-	void incluiEventoClock();
+	void incluiEventoClock(Evento* evento);
+
+	void retiraEventoClock();
 
 };
 

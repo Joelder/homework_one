@@ -24,3 +24,15 @@ Evento::~Evento() {
 	// TODO Auto-generated destructor stub
 }
 
+bool Evento::operator< (const Evento& outro) {
+	return this->timestamp < outro.timestamp;
+}
+
+bool Evento::operator> (const Evento& outro) {
+	return this->timestamp > outro.timestamp;
+}
+
+bool Evento::operator== (const Evento& outro) {
+	return this->timestamp == outro.timestamp;
+}
+

@@ -9,11 +9,9 @@
 #define EVENTOS_EVENTO_H_
 
 class Evento {
-protected:
-	int timestamp;
 
 public:
-
+	int timestamp;
 	Evento(int timestamp);
 
 	int getTimeStamp();
@@ -22,7 +20,11 @@ public:
 
 	virtual ~Evento();
 
+	bool operator< (const Evento& outro);
 
+	bool operator> (const Evento& outro);
+
+	bool operator== (const Evento& outro);
 };
 
 #endif /* EVENTOS_EVENTO_H_ */

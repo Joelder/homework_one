@@ -7,8 +7,8 @@
 
 #include "Fonte.h"
 
-Fonte::Fonte(int tamanho, int velocidade, bool semaforo) :
-		Pista(tamanho, velocidade, semaforo) {
+Fonte::Fonte(int proporcao, int tamanho, int velocidade, bool semaforo) :
+		Pista(proporcao, tamanho, velocidade, semaforo) {
 	// TODO Auto-generated constructor stub
 
 }

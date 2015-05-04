@@ -14,7 +14,12 @@ Clock::Clock() {
 }
 
 void Clock::adicionaEvento(Evento* ev) {
-	this->adicionaEmOrdem(ev);
+	int tamanhoLista = this->eventos->size;
+	int count = 0;
+	while(count < tamanhoLista && this->eventos->getPosicao(count)->getTimeStamp() < ev->getTimeStamp()){
+		count++;
+	}
+	this->eventos->adicionaNaPosicao(ev,count);
 }
 
 Evento* Clock::retiraEvento() {

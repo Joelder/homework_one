@@ -9,7 +9,7 @@
 
 template<typename T>
 class ListaEnc {
- protected:
+ public:
 	Elemento<T>* head;
 	int size;
 
@@ -177,6 +177,22 @@ class ListaEnc {
 			return obj;
 		}
 	}
+
+	T getPosicao(int pos) {
+			if(pos >= this->size || pos < 0) {
+				throw "Erro na posição";
+			} else if (pos == 0) {
+				return this->head->getInfo();
+			} else {
+				Elemento<T>* pointer_transfer = this->head;
+				for(int i = 1; i < pos; i++) {
+					pointer_transfer = pointer_transfer->getProximo();
+				}
+				Elemento<T>* elemento = pointer_transfer->getProximo();
+				return elemento->getInfo();
+			}
+		}
+
 
 	/*!
  	* Método responsável por adicionar um elemento 

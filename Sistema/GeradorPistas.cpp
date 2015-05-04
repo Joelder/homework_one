@@ -11,9 +11,9 @@
 
 #include <stdlib.h>
 
-#include "../Pista/Fonte.h"
+#include "../Pista/Fonte.cpp"
 #include "../Pista/Pista.cpp"
-#include "../Pista/Sumidouro.h"
+#include "../Pista/Sumidouro.cpp"
 
 GeradorPistas::GeradorPistas() {
 	this->pistaO1Oeste = NULL;

@@ -11,9 +11,7 @@
 
 #include "../Estruturas/Lista.hpp"
 #include "../Pista/Pista.cpp"
-#include "../Pista/Pista.h"
 #include "../Sistema/GeradorPistas.cpp"
-#include "../Sistema/GeradorPistas.h"
 
 int main(int argc, char** argv) {
 	GeradorPistas* gerador = new GeradorPistas();

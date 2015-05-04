@@ -4,12 +4,11 @@
  *  Created on: Apr 26, 2015
  *  Copyright 2015 Joelder Maragno Arcaro e Thomas Feijoo
  */
+#ifndef CLOCK_H_
+#define CLOCK_H_
 
 #include "../Estruturas/ListaEnc.hpp"
 #include "../Eventos/Evento.cpp"
-
-#ifndef CLOCK_CLOCK_H_
-#define CLOCK_CLOCK_H_
 
 class Clock: public ListaEnc<Evento*> {
 
@@ -26,7 +25,7 @@ public:
 
 	Evento* retiraEvento();
 
-	ListaEnc<Evento*>* getEvento();
+	ListaEnc<Evento*>* getEventos();
 };
 
 #endif /* CLOCK_CLOCK_H_ */

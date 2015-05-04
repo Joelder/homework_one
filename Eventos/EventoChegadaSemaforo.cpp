@@ -5,6 +5,8 @@
  *      Author: home
  */
 
+#ifndef EVENTOCHEGADASEMAFORO_CPP
+#define EVENTOCHEGADASEMAFORO_CPP
 #include "EventoChegadaSemaforo.h"
 
 EventoChegadaSemaforo::EventoChegadaSemaforo(Carro* carro, Pista* pista, int timestamp) {
@@ -26,3 +28,4 @@ EventoChegadaSemaforo::~EventoChegadaSemaforo() {
 	// TODO Auto-generated destructor stub
 }
 
+#endif

@@ -5,21 +5,16 @@
  *      Author: home
  */
 
+#ifndef SISTEMA_CPP
+#define SISTEMA_CPP
 #include "Sistema.h"
 
 #include <cstdlib>
 #include <ctime>
 
-#include "../Carro/Carro.cpp"
-#include "../Carro/Carro.h"
-#include "../Estruturas/Lista.hpp"
-#include "../Eventos/EventoNovoCarro.h"
-#include "../Pista/Pista.cpp"
-#include "../Pista/Pista.h"
-#include "../util/GeradorAleatorios.cpp"
-#include "../util/GeradorAleatorios.h"
-#include "GeradorPistas.h"
-#include "../Clock/Clock.cpp"
+class EventoChegadaCarro;
+class EventoChegadaSemaforo;
+class EventoMudancaSemaforo;
 
 Sistema::Sistema() {
 	criaPistas();
@@ -96,3 +91,8 @@ void Sistema::incluiEventoClock(Evento* evento) {
 void Sistema::retiraEventoClock() {
 	this->clock->retiraEvento();
 }
+
+Clock* Sistema::getClock() {
+	return this->clock;
+}
+#endif

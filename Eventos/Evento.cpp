@@ -4,7 +4,8 @@
  *  Created on: Apr 26, 2015
  *  Copyright 2015 Joelder Maragno Arcaro e Thomas Feijo
  */
-
+#ifndef EVENTO_CPP
+#define EVENTO_CPP
 #include "Evento.h"
 using namespace std;
 
@@ -40,4 +41,4 @@ bool Evento::operator> (const Evento& outro) {
 bool Evento::operator== (const Evento& outro) {
 	return this->timestamp == outro.timestamp;
 }
-
+#endif

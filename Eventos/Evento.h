@@ -5,8 +5,8 @@
  *  Copyright 2015 Joelder Maragno Arcaro e Thomas Feijo
  */
 
-#ifndef EVENTOS_EVENTO_H_
-#define EVENTOS_EVENTO_H_
+#ifndef EVENTO_H_
+#define EVENTO_H_
 using namespace std;
 
 

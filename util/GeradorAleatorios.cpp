@@ -5,6 +5,8 @@
  *      Author: thomas
  */
 
+#ifndef GERADORALEATORIOS_CPP
+#define GERADORALEATORIOS_CPP
 #include "GeradorAleatorios.h"
 #include <stdlib.h>
 #include <cstdlib>
@@ -27,4 +29,4 @@ int GeradorAleatorios::gerarProbabilidade() {
 	return 1 + (rand() % 10);
 }
 
-
+#endif

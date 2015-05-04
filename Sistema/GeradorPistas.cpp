@@ -5,6 +5,8 @@
  *      Author: thomas
  */
 
+#ifndef GERADORPISTAS_CPP
+#define GERADORPISTAS_CPP
 #include "GeradorPistas.h"
 
 #include <stdlib.h>
@@ -175,3 +177,4 @@ void GeradorPistas::geraPistas() {
 	this->getPistaS2Norte();
 }
 
+#endif

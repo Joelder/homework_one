@@ -10,26 +10,19 @@
 
 #include <iostream>
 
-#include "../Estruturas/ListaEnc.hpp"
-#include "../Eventos/Evento.cpp"
+#include "../Clock/Clock.cpp"
+#include "../Sistema/Sistema.cpp"
 
 int main(int argc, char** argv) {
-	Evento* evento = new Evento(8);
-	Evento* evento2 = new Evento(10);
-	Evento* evento3 = new Evento(10);
-	bool resposta = evento2 < evento3;
+	Sistema* sistema = new Sistema();
+	//int antesDosEventosIniciais = sistema->getClock()->getEventos()->size;
+	//sistema->geraEventosIniciais();
+	//int depoisDosEventosIniciais = sistema->getClock()->getEventos()->size;
 
-	ListaEnc<Evento*>* eventos = new ListaEnc<Evento*>;
-	eventos->adicionaEmOrdem(evento2);
-	eventos->adicionaEmOrdem(evento);
-	eventos->adicionaEmOrdem(evento3);
-	int posicaoEvento1 = eventos->posicao(evento);
-	int posicaoEvento2 = eventos->posicao(evento2);
-	int posicaoEvento3 = eventos->posicao(evento3);
-	std::cout << "é maior? : " << resposta << std::endl;
-	std::cout << "posicao 1 : " << posicaoEvento1 << std::endl;
-	std::cout << "posicao 2 : " << posicaoEvento2 << std::endl;
-	std::cout << "posicao 3 : " << posicaoEvento3 << std::endl;
+	//std::cout << "tamanho antes dos eventos iniciais: "
+		//	<< antesDosEventosIniciais << std::endl;
+	//std::cout << "tamanho depois dos eventos iniciais: "
+		//	<< depoisDosEventosIniciais << std::endl;
 	return 0;
 
 }

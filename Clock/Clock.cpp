@@ -4,7 +4,8 @@
  *  Created on: Apr 26, 2015
  *  Copyright 2015 Joelder Maragno Arcaro e Thomas Feijo
  */
-
+#ifndef CLOCK_CPP
+#define CLOCK_CPP
 #include "Clock.h"
 
 #include "../Eventos/Evento.h"
@@ -26,11 +27,11 @@ Evento* Clock::retiraEvento() {
 	return this->retiraDoInicio();
 }
 
-ListaEnc<Evento*>* Clock::getEvento() {
+ListaEnc<Evento*>* Clock::getEventos() {
 	return this->eventos;
 }
 
 Clock::~Clock() {
 	// TODO Auto-generated destructor stub
 }
-
+#endif

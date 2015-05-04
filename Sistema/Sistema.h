@@ -7,8 +7,18 @@
 
 #ifndef SISTEMA_SISTEMA_H_
 #define SISTEMA_SISTEMA_H_
+#include "../Carro/Carro.cpp"
+#include "../Clock/Clock.cpp"
+#include "../Estruturas/Lista.hpp"
+#include "../Pista/Pista.cpp"
+#include "../util/GeradorAleatorios.cpp"
 #include "../Eventos/EventoNovoCarro.cpp"
 #include "GeradorPistas.cpp"
+#include "../Eventos/EventoChegadaCarro.cpp"
+#include "../Eventos/EventoChegadaSemaforo.cpp"
+#include "../Eventos/EventoMudancaSemaforo.cpp"
+#include "../Eventos/EventoNovoCarro.cpp"
+#include "../Eventos/EventoTrocaPista.cpp"
 
 class Sistema {
 protected:
@@ -33,7 +43,6 @@ public:
 	 * Big Bang e no inicio fez se os eventos
 	 * */
 	void geraEventosIniciais();
-
 
 	/*
 	 * Classifica e roteia o Evento que chegou no sistema
@@ -95,6 +104,7 @@ public:
 
 	void retiraEventoClock();
 
+	Clock* getClock();
 };
 
 #endif /* SISTEMA_SISTEMA_H_ */

@@ -5,6 +5,8 @@
  *      Author: home
  */
 
+#ifndef FONTE_CPP
+#define FONTE_CPP
 #include "Fonte.h"
 
 Fonte::Fonte(int proporcao, int tamanho, int velocidade, bool semaforo) :
@@ -17,3 +19,4 @@ Fonte::~Fonte() {
 	// TODO Auto-generated destructor stub
 }
 
+#endif

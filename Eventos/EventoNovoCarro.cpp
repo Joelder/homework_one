@@ -4,7 +4,8 @@
  *  Created on: May 1, 2015
  *      Author: home
  */
-
+#ifndef EVENTONOVOCARRO_CPP
+#define EVENTONOVOCARRO_CPP
 #include "EventoNovoCarro.h"
 
 EventoNovoCarro::EventoNovoCarro(int tamanhoCarro, Pista* pistaOrigem, Pista* pistaDestino, int timestamp)  {
@@ -31,3 +32,4 @@ EventoNovoCarro::~EventoNovoCarro() {
 	// TODO Auto-generated destructor stub
 }
 
+#endif

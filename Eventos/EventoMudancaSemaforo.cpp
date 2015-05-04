@@ -10,13 +10,13 @@
 #include "EventoMudancaSemaforo.h"
 using namespace std;
 
-EventoMudancaSemaforo::EventoMudancaSemaforo(Pista* pista, int timestamp, string name) {
+EventoMudancaSemaforo::EventoMudancaSemaforo(Pista* pista, int timestamp,
+		string name) :
+		Evento(timestamp, name) {
 	this->pista = pista;
-	this->timestamp = timestamp;
-	this->name = name;
 }
 
-Pista* EventoMudancaSemaforo::getPista(){
+Pista* EventoMudancaSemaforo::getPista() {
 	return this->pista;
 }
 

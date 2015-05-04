@@ -10,12 +10,10 @@
 using namespace std;
 
 EventoNovoCarro::EventoNovoCarro(int tamanhoCarro, Pista* pistaOrigem,
-		Pista* pistaDestino, int timestamp, string name) {
+		Pista* pistaDestino, int timestamp, string name) : Evento(timestamp, name) {
 	this->tamanhoCarro = tamanhoCarro;
 	this->pistaOrigem = pistaOrigem;
 	this->pistaDestino = pistaDestino;
-	this->timestamp = timestamp;
-	this->name = name;
 }
 
 int EventoNovoCarro::getTamanhoCarrro() {

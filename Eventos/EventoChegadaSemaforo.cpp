@@ -10,19 +10,18 @@
 #include "EventoChegadaSemaforo.h"
 using namespace std;
 
-EventoChegadaSemaforo::EventoChegadaSemaforo(Carro* carro, Pista* pista, int timestamp, string name) {
+EventoChegadaSemaforo::EventoChegadaSemaforo(Carro* carro, Pista* pista,
+		int timestamp, string name) :
+		Evento(timestamp, name) {
 	this->carro = carro;
 	this->pistaOrigem = pista;
-	this->timestamp = timestamp;
-	this->name = name;
 }
-
 
 Carro* EventoChegadaSemaforo::getCarro() {
 	return this->carro;
 }
 
-Pista* EventoChegadaSemaforo::getPistaOrigem(){
+Pista* EventoChegadaSemaforo::getPistaOrigem() {
 	return this->pistaOrigem;
 }
 

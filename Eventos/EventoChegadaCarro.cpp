@@ -8,11 +8,9 @@
 #define EVENTOCHEGADACARRO_CPP
 #include "EventoChegadaCarro.h"
 using namespace std;
-EventoChegadaCarro::EventoChegadaCarro(Carro* carro, Pista* pista, int timestamp, string name) {
+EventoChegadaCarro::EventoChegadaCarro(Carro* carro, Pista* pista, int timestamp, string name) : Evento(timestamp, name) {
 	this->carro = carro;
 	this->pista = pista;
-	this->timestamp = timestamp;
-	this->name = name;
 }
 
 

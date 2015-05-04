@@ -7,8 +7,11 @@
 
 #ifndef SISTEMA_SISTEMA_H_
 #define SISTEMA_SISTEMA_H_
+#include "../Sistema/GeradorPistas.cpp"
 
 class Sistema {
+private:
+	GeradorPistas* gerador;
 public:
 	Sistema();
 

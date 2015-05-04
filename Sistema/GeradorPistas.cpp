@@ -9,9 +9,8 @@
 
 #include <stdlib.h>
 
-#include "../Pista/Fonte.h"
-#include "../Pista/Pista.cpp"
-#include "../Pista/Sumidouro.h"
+#include "../Pista/Fonte.cpp"
+#include "../Pista/Sumidouro.cpp"
 
 GeradorPistas::GeradorPistas() {
 	this->pistaO1Oeste = NULL;
@@ -30,6 +29,7 @@ GeradorPistas::GeradorPistas() {
 	this->pistaN2Sul = NULL;
 	this->pistaS2Norte = NULL;
 	this->pistaL1Oeste = NULL;
+	this->geraPistas();
 
 }
 
@@ -38,139 +38,139 @@ GeradorPistas::~GeradorPistas() {
 }
 
 //Sumidouros
-Pista* GeradorPistas::geraPistaO1Oeste() {
-	if (this->pistaO1Oeste != NULL) {
+Pista* GeradorPistas::getPistaO1Oeste() {
+	if (this->pistaO1Oeste == NULL) {
 		this->pistaO1Oeste = new Sumidouro(2000, 80, true);
 	}
 	return this->pistaO1Oeste;
 }
 
-Pista* GeradorPistas::geraPistaN1Norte() {
-	if (this->pistaN1Norte != NULL) {
+Pista* GeradorPistas::getPistaN1Norte() {
+	if (this->pistaN1Norte == NULL) {
 		this->pistaN1Norte = new Sumidouro(500, 60, true);
 	}
 	return this->pistaN1Norte;
 }
 
-Pista* GeradorPistas::geraPistaS1Sul() {
-	if (this->pistaS1Sul != NULL) {
+Pista* GeradorPistas::getPistaS1Sul() {
+	if (this->pistaS1Sul == NULL) {
 		this->pistaS1Sul = new Sumidouro(500, 60, true);
 	}
 	return this->pistaS1Sul;
 }
 
-Pista* GeradorPistas::geraPistaN2Norte() {
-	if (this->pistaN2Norte != NULL) {
+Pista* GeradorPistas::getPistaN2Norte() {
+	if (this->pistaN2Norte == NULL) {
 		this->pistaN2Norte = new Sumidouro(500, 40, true);
 	}
 	return this->pistaN2Norte;
 }
 
-Pista* GeradorPistas::geraPistaL1Leste() {
-	if (this->pistaL1Leste != NULL) {
+Pista* GeradorPistas::getPistaL1Leste() {
+	if (this->pistaL1Leste == NULL) {
 		this->pistaL1Leste = new Sumidouro(400, 30, true);
 	}
 	return this->pistaL1Leste;
 }
 
-Pista* GeradorPistas::geraPistaS2Sul() {
-	if (this->pistaS2Sul != NULL) {
+Pista* GeradorPistas::getPistaS2Sul() {
+	if (this->pistaS2Sul == NULL) {
 		this->pistaS2Sul = new Sumidouro(500, 40, true);
 	}
 	return this->pistaS2Sul;
 }
 
 //Centrais
-Pista* GeradorPistas::geraPistaC1Oeste() {
-	if (this->pistaC1Oeste != NULL) {
+Pista* GeradorPistas::getPistaC1Oeste() {
+	if (this->pistaC1Oeste == NULL) {
 		this->pistaC1Oeste = new Pista(300, 60, false);
-		this->pistaC1Oeste->conectarPistas(this->geraPistaN1Norte(),
-				this->geraPistaO1Oeste(), this->geraPistaS1Sul());
+		this->pistaC1Oeste->conectarPistas(this->getPistaN1Norte(),
+				this->getPistaO1Oeste(), this->getPistaS1Sul());
 	}
 	return this->pistaC1Oeste;
 }
 
-Pista* GeradorPistas::geraPistaC1Leste() {
-	if (this->pistaC1Leste != NULL) {
+Pista* GeradorPistas::getPistaC1Leste() {
+	if (this->pistaC1Leste == NULL) {
 		this->pistaC1Leste = new Pista(300, 60, false);
-		this->pistaC1Leste->conectarPistas(this->geraPistaN2Norte(),
-				this->geraPistaL1Leste(), this->geraPistaS2Sul());
+		this->pistaC1Leste->conectarPistas(this->getPistaN2Norte(),
+				this->getPistaL1Leste(), this->getPistaS2Sul());
 	}
 	return this->pistaC1Leste;
 }
 
 //Fontes
-Pista* GeradorPistas::geraPistaO1Leste() {
-	if (this->pistaO1Leste != NULL) {
+Pista* GeradorPistas::getPistaO1Leste() {
+	if (this->pistaO1Leste == NULL) {
 		this->pistaO1Leste = new Fonte(2000, 80, false);
-		this->pistaO1Leste->conectarPistas(this->geraPistaN1Norte(),
-				this->geraPistaC1Leste(), this->geraPistaS1Sul());
+		this->pistaO1Leste->conectarPistas(this->getPistaN1Norte(),
+				this->getPistaC1Leste(), this->getPistaS1Sul());
 	}
 	return this->pistaO1Leste;
 }
 
-Pista* GeradorPistas::geraPistaN1Sul() {
-	if (this->pistaN1Sul != NULL) {
+Pista* GeradorPistas::getPistaN1Sul() {
+	if (this->pistaN1Sul == NULL) {
 		this->pistaN1Sul = new Fonte(500, 60, false);
-		this->pistaN1Sul->conectarPistas(this->geraPistaO1Oeste(),
-				this->geraPistaS1Sul(), this->geraPistaC1Leste());
+		this->pistaN1Sul->conectarPistas(this->getPistaO1Oeste(),
+				this->getPistaS1Sul(), this->getPistaC1Leste());
 	}
 	return this->pistaN1Sul;
 }
 
-Pista* GeradorPistas::geraPistaS1Norte() {
-	if (this->pistaS1Norte != NULL) {
+Pista* GeradorPistas::getPistaS1Norte() {
+	if (this->pistaS1Norte == NULL) {
 		this->pistaS1Norte = new Fonte(500, 60, false);
-		this->pistaS1Norte->conectarPistas(this->geraPistaO1Oeste(),
-				this->geraPistaN1Norte(), this->geraPistaC1Leste());
+		this->pistaS1Norte->conectarPistas(this->getPistaO1Oeste(),
+				this->getPistaN1Norte(), this->getPistaC1Leste());
 	}
 	return this->pistaS1Norte;
 }
 
-Pista* GeradorPistas::geraPistaN2Sul() {
-	if (this->pistaN2Sul != NULL) {
+Pista* GeradorPistas::getPistaN2Sul() {
+	if (this->pistaN2Sul == NULL) {
 		this->pistaN2Sul = new Fonte(500, 40, false);
-		this->pistaN2Sul->conectarPistas(this->geraPistaC1Oeste(),
-				this->geraPistaS2Sul(), this->geraPistaL1Leste());
+		this->pistaN2Sul->conectarPistas(this->getPistaC1Oeste(),
+				this->getPistaS2Sul(), this->getPistaL1Leste());
 	}
 	return this->pistaN2Sul;
 }
 
-Pista* GeradorPistas::geraPistaS2Norte() {
-	if (this->pistaS2Norte != NULL) {
+Pista* GeradorPistas::getPistaS2Norte() {
+	if (this->pistaS2Norte == NULL) {
 		this->pistaS2Norte = new Fonte(500, 40, false);
-		this->pistaS2Norte->conectarPistas(this->geraPistaC1Oeste(),
-				this->geraPistaN2Norte(), this->geraPistaL1Leste());
+		this->pistaS2Norte->conectarPistas(this->getPistaC1Oeste(),
+				this->getPistaN2Norte(), this->getPistaL1Leste());
 	}
 	return this->pistaS2Norte;
 }
 
-Pista* GeradorPistas::geraPistaL1Oeste() {
-	if (this->pistaL1Oeste != NULL) {
+Pista* GeradorPistas::getPistaL1Oeste() {
+	if (this->pistaL1Oeste == NULL) {
 		this->pistaL1Oeste = new Fonte(400, 30, false);
-		this->pistaL1Oeste->conectarPistas(this->geraPistaN2Norte(),
-				this->geraPistaC1Oeste(), this->geraPistaS2Sul());
+		this->pistaL1Oeste->conectarPistas(this->getPistaN2Norte(),
+				this->getPistaC1Oeste(), this->getPistaS2Sul());
 	}
 	return this->pistaL1Oeste;
 }
 
 void GeradorPistas::geraPistas() {
 	// Pistas sumidouras
-	this->geraPistaO1Oeste();
-	this->geraPistaL1Leste();
-	this->geraPistaS1Sul();
-	this->geraPistaS2Sul();
-	this->geraPistaN1Norte();
-	this->geraPistaN2Norte();
+	this->getPistaO1Oeste();
+	this->getPistaL1Leste();
+	this->getPistaS1Sul();
+	this->getPistaS2Sul();
+	this->getPistaN1Norte();
+	this->getPistaN2Norte();
 	// Pistas normais
-	this->geraPistaC1Oeste();
-	this->geraPistaC1Leste();
+	this->getPistaC1Oeste();
+	this->getPistaC1Leste();
 	// Pistas fontes
-	this->geraPistaO1Leste();
-	this->geraPistaL1Oeste();
-	this->geraPistaN1Sul();
-	this->geraPistaN2Sul();
-	this->geraPistaS1Norte();
-	this->geraPistaS2Norte();
+	this->getPistaO1Leste();
+	this->getPistaL1Oeste();
+	this->getPistaN1Sul();
+	this->getPistaN2Sul();
+	this->getPistaS1Norte();
+	this->getPistaS2Norte();
 }
 

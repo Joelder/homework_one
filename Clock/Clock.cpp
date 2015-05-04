@@ -7,10 +7,11 @@
 
 #include "Clock.h"
 
+#include "../Eventos/Evento.h"
+
 Clock::Clock() {
 	this->eventos = new ListaEnc<Evento*>;
 }
-
 
 void Clock::adicionaEvento(Evento* ev) {
 	this->adicionaEmOrdem(ev);

@@ -29,27 +29,26 @@ private:
 	Pista* pistaS2Norte;
 	Pista* pistaL1Oeste;
 
-	//Sumidouros
-		Pista* geraPistaO1Oeste();
-		Pista* geraPistaN1Norte();
-		Pista* geraPistaS1Sul();
-		Pista* geraPistaN2Norte();
-		Pista* geraPistaL1Leste();
-		Pista* geraPistaS2Sul();
-		//Centrais
-		Pista* geraPistaC1Oeste();
-		Pista* geraPistaC1Leste();
-		//Fontes
-		Pista* geraPistaO1Leste();
-		Pista* geraPistaN1Sul();
-		Pista* geraPistaS1Norte();
-		Pista* geraPistaN2Sul();
-		Pista* geraPistaS2Norte();
-		Pista* geraPistaL1Oeste();
-
 public:
 	GeradorPistas();
 	virtual ~GeradorPistas();
+	//Sumidouros
+	Pista* getPistaO1Oeste();
+	Pista* getPistaN1Norte();
+	Pista* getPistaS1Sul();
+	Pista* getPistaN2Norte();
+	Pista* getPistaL1Leste();
+	Pista* getPistaS2Sul();
+	//Centrais
+	Pista* getPistaC1Oeste();
+	Pista* getPistaC1Leste();
+	//Fontes
+	Pista* getPistaO1Leste();
+	Pista* getPistaN1Sul();
+	Pista* getPistaS1Norte();
+	Pista* getPistaN2Sul();
+	Pista* getPistaS2Norte();
+	Pista* getPistaL1Oeste();
 	void geraPistas();
 };
 

@@ -11,7 +11,7 @@
 
 class Fonte: public Pista {
 public:
-	Fonte(int tamanho, int velocidade, bool semaforo);
+	Fonte(int proporcao, int tamanho, int velocidade, bool semaforo);
 	virtual ~Fonte();
 };
 

@@ -11,7 +11,7 @@
 
 class Sumidouro: public Pista {
 public:
-	Sumidouro(int tamanho, int velocidade, bool semaforo);
+	Sumidouro(int proporcao, int tamanho, int velocidade, bool semaforo);
 	virtual ~Sumidouro();
 };
 

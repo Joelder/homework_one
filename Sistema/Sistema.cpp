@@ -12,14 +12,18 @@
 
 #include "../Carro/Carro.cpp"
 #include "../Carro/Carro.h"
+#include "../Estruturas/Lista.hpp"
 #include "../Eventos/EventoNovoCarro.h"
 #include "../Pista/Pista.cpp"
 #include "../Pista/Pista.h"
+#include "../util/GeradorAleatorios.cpp"
 #include "../util/GeradorAleatorios.h"
 #include "GeradorPistas.h"
+#include "../Clock/Clock.cpp"
 
 Sistema::Sistema() {
 	criaPistas();
+	this->clock = new Clock();
 }
 
 Sistema::~Sistema() {
@@ -38,13 +42,17 @@ Carro* Sistema::criaCarro(int tamanho) {
 void Sistema::geraEventosIniciais() {
 	GeradorAleatorios* geradorAleatorio = new GeradorAleatorios();
 	srand(time(NULL));
-EventoNovoCarro* evento = new EventoNovoCarro(geradorAleatorio->gerarTamanhoCarro(),this->gerador->getPistaO1Leste(), );
+	Pista* origem = this->gerador->getPistaO1Leste();
+	int proporcao = origem->getPistaConectadaProporcao();
+	Pista* destino = origem->getPistasConectadas()->getPosicao(proporcao);
+	EventoNovoCarro* evento = new EventoNovoCarro(
+			geradorAleatorio->gerarTamanhoCarro(), origem, destino, 8);
 }
 
 void Sistema::consomeEventoNovoCarro(EventoNovoCarro* novoCarro) {
-Carro* carro = criaCarro(novoCarro->getTamanhoCarrro());
-carro->setDestino(novoCarro->getPistaDestino());
-novoCarro->getPistaOrigem()->adicionarCarroPista(carro);
+	Carro* carro = criaCarro(novoCarro->getTamanhoCarrro());
+	carro->setDestino(novoCarro->getPistaDestino());
+	novoCarro->getPistaOrigem()->adicionarCarroPista(carro);
 }
 
 void Sistema::consomeEventoTrocaPista() {
@@ -65,5 +73,10 @@ void Sistema::geraEventoChegadaCarro();
 
 void Sistema::geraEventoTrocaPista();
 
-void Sistema::incluiEventoClock();
+void Sistema::incluiEventoClock(Evento* evento) {
+	this->clock->adicionaEvento(evento);
+}
 
+void Sistema::retiraEventoClock() {
+	this->clock->retiraEvento();
+}

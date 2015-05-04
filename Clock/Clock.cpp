@@ -26,6 +26,10 @@ Evento* Clock::retiraEvento() {
 	return this->retiraDoInicio();
 }
 
+ListaEnc<Evento*>* Clock::getEvento() {
+	return this->eventos;
+}
+
 Clock::~Clock() {
 	// TODO Auto-generated destructor stub
 }

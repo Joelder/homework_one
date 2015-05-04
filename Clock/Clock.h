@@ -26,6 +26,7 @@ public:
 
 	Evento* retiraEvento();
 
+	ListaEnc<Evento*>* getEvento();
 };
 
 #endif /* CLOCK_CLOCK_H_ */

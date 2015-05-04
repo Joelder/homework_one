@@ -14,6 +14,10 @@
 class Pista: public FilaEnc<Carro*> {
 
 protected:
+	/*
+	 * Proporcação indica se a pista é de proporção "0" 80/10/10 ou "1" 40/30/30
+	 * */
+	int proporcao;
 	int tamanho;
 	int espacoRestante;
 	int velocidade;
@@ -22,8 +26,10 @@ protected:
 
 
 public:
-	Pista(int tamanho, int velocidade, bool semaforo);
+	Pista(int proporcao, int tamanho, int velocidade, bool semaforo);
 	virtual ~Pista();
+
+	int getProporcao();
 
 	int getTamanho();
 
@@ -44,6 +50,8 @@ public:
 	bool transferirCarro(Pista* pista);
 
 	int getEspacoRestante();
+
+	int getPistaConectadaProporcao();
 
 };
 

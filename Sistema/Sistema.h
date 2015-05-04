@@ -95,7 +95,7 @@ public:
 	 * */
 	void incluiEventoClock(Evento* evento);
 
-	void retiraEventoClock();
+	Evento* retiraEventoClock();
 
 	Clock* getClock();
 };

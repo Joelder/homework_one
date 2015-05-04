@@ -103,8 +103,8 @@ void Sistema::incluiEventoClock(Evento* evento) {
 	this->clock->adicionaEvento(evento);
 }
 
-void Sistema::retiraEventoClock() {
-	this->clock->retiraEvento();
+Evento* Sistema::retiraEventoClock() {
+	return this->clock->retiraEvento();
 }
 
 Clock* Sistema::getClock() {

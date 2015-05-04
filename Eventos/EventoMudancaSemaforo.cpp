@@ -7,8 +7,9 @@
 
 #include "EventoMudancaSemaforo.h"
 
-EventoMudancaSemaforo::EventoMudancaSemaforo(Pista* pista) {
+EventoMudancaSemaforo::EventoMudancaSemaforo(Pista* pista, int timestamp) {
 	this->pista = pista;
+	this->timestamp = timestamp;
 }
 
 Pista* EventoMudancaSemaforo::getPista(){

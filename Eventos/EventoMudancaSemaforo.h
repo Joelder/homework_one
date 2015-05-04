@@ -14,7 +14,7 @@ private:
 	Pista* pista;
 
 public:
-	EventoMudancaSemaforo(Pista* pista);
+	EventoMudancaSemaforo(Pista* pista, int timestamp);
 
 	virtual ~EventoMudancaSemaforo();
 

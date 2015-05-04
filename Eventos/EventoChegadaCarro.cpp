@@ -7,9 +7,10 @@
 
 #include "EventoChegadaCarro.h"
 
-EventoChegadaCarro::EventoChegadaCarro(Carro* carro, Pista* pista) {
+EventoChegadaCarro::EventoChegadaCarro(Carro* carro, Pista* pista, int timestamp) {
 	this->carro = carro;
 	this->pista = pista;
+	this->timestamp = timestamp;
 }
 
 

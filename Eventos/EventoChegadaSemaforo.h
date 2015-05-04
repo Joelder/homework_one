@@ -16,7 +16,7 @@ private:
 
 public:
 
-	EventoChegadaSemaforo(Carro* carro, Pista* pista);
+	EventoChegadaSemaforo(Carro* carro, Pista* pista, int timestamp);
 
 	virtual ~EventoChegadaSemaforo();
 

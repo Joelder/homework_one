@@ -9,9 +9,13 @@
 #include "Evento.h"
 using namespace std;
 
-Evento::Evento(int timestamp, string name) {
+Evento::Evento(int timestamp, string name, int tamanhoCarro, Pista* pistaOrigem, Pista* pistaDestino, Carro* carro) {
 	this->timestamp = timestamp;
 	this->name = name;
+	this->tamanhoCarro = tamanhoCarro;
+	this->pistaOrigem = pistaOrigem;
+	this->pistaDestino = pistaDestino;
+	this->carro = carro;
 }
 
 int Evento::getTimeStamp(){
@@ -30,15 +34,22 @@ string Evento::getName() {
 	return this->name;
 }
 
-bool Evento::operator< (const Evento& outro) {
-	return this->timestamp < outro.timestamp;
+int Evento::getTamanhoCarrro() {
+	return this->tamanhoCarro;
 }
 
-bool Evento::operator> (const Evento& outro) {
-	return this->timestamp > outro.timestamp;
+Pista* Evento::getPistaDestino() {
+	return this->pistaDestino;
 }
 
-bool Evento::operator== (const Evento& outro) {
-	return this->timestamp == outro.timestamp;
+Pista* Evento::getPistaOrigem() {
+	return this->pistaOrigem;
 }
+
+Carro* Evento::getCarro() {
+	return this->carro;
+}
+
+
+
 #endif

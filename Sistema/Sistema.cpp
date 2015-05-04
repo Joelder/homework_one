@@ -41,7 +41,7 @@ void Sistema::geraEventosIniciais() {
 	Pista* origem = this->gerador->getPistaO1Leste();
 	int proporcao = origem->getPistaConectadaProporcao();
 	Pista* destino = origem->getPistasConectadas()->getPosicao(proporcao);
-	EventoNovoCarro* evento = new EventoNovoCarro(
+	Evento* evento = new EventoNovoCarro(
 			geradorAleatorio->gerarTamanhoCarro(), origem, destino, 8, "NovoCarro");
 	incluiEventoClock(evento);
 }

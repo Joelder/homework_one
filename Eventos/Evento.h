@@ -9,16 +9,40 @@
 #define EVENTO_H_
 using namespace std;
 
-
 class Evento {
 
 private:
 	string name;
+	int tamanhoCarro;
+	Pista* pistaOrigem;
+	Pista* pistaDestino;
+	Carro* carro;
+
+	/*
+	 * Evento Novo carro
+	 * @params: tamanhoCarro, pistaOrigem, pistaDestino
+	 * */
+
+	/*
+	 * Evento Chegada carro
+	 * @params: pistaDestino, carro
+	 * */
+
+	/*
+	 * Evento Chegada Semaforo
+	 * @params: pistaOrigem, carro
+	 * */
+
+	/*
+	 * Evento Mudança Semaforo
+	 * @params: pistaOrigem
+	 * */
 
 public:
 	int timestamp;
 
-	Evento(int timestamp, string name);
+	Evento(int timestamp, string name, int tamanhoCarro, Pista* pistaOrigem,
+			Pista* pistaDestino, Carro* carro);
 
 	int getTimeStamp();
 
@@ -28,11 +52,14 @@ public:
 
 	string getName();
 
-	bool operator< (const Evento& outro);
+	int getTamanhoCarrro();
 
-	bool operator> (const Evento& outro);
+	Pista* getPistaOrigem();
 
-	bool operator== (const Evento& outro);
+	Pista* getPistaDestino();
+
+	Carro* getCarro();
+
 };
 
 #endif /* EVENTOS_EVENTO_H_ */

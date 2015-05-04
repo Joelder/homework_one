@@ -13,6 +13,7 @@ public:
 	GeradorAleatorios();
 	virtual ~GeradorAleatorios();
 	int gerarTamanhoCarro();
+	int gerarProbabilidade();
 };
 
 #endif /* UTIL_GERADORALEATORIOS_H_ */

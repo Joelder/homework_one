@@ -23,4 +23,8 @@ int GeradorAleatorios::gerarTamanhoCarro() {
 	return 2 + (rand() % 9);
 }
 
+int GeradorAleatorios::gerarProbabilidade() {
+	return 1 + (rand() % 10);
+}
+
 

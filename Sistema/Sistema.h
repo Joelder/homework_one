@@ -7,10 +7,11 @@
 
 #ifndef SISTEMA_SISTEMA_H_
 #define SISTEMA_SISTEMA_H_
-#include "../Sistema/GeradorPistas.cpp"
+#include "../Eventos/EventoNovoCarro.cpp"
+#include "GeradorPistas.cpp"
 
 class Sistema {
-private:
+protected:
 	GeradorPistas* gerador;
 public:
 	Sistema();
@@ -25,24 +26,17 @@ public:
 	/*
 	 * Método que cria o carro
 	 * */
-	void criaCarro();
-
-
-	/*
-	 * Interliga as pistas
-	 * */
-	void relacionaPistas();
+	Carro* criaCarro(int tamanho);
 
 	/*
 	 * Big Bang e no inicio fez se os eventos
 	 * */
 	void geraEventosIniciais();
 
-
 	/*
 	 * Evento Cria Novo carro, coloca na pista, gera novo evento Chegada Semaforo
 	 * */
-	void consomeEventoNovoCarro();
+	void consomeEventoNovoCarro(EventoNovoCarro* novoCarro);
 
 	/*
 	 * Evento Troca um carro de uma pista para outra
@@ -53,7 +47,6 @@ public:
 	 * Evento troca o semaforo de uma pista, pode gerar evento troca de pista
 	 * */
 	void consomeEventoMudancaSemaforo();
-
 
 	/*
 	 * Evento tira o carro da pista sumidouro, gera log no sistema
@@ -84,7 +77,6 @@ public:
 	 * Gera o evento troca pista
 	 * */
 	void geraEventoTrocaPista();
-
 
 	/*
 	 * Inclui no clock o evento recém gerado

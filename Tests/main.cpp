@@ -9,7 +9,7 @@ int main(int argc, char** argv) {
 	GeradorAleatorios* gerador = new GeradorAleatorios();
 	srand(time(NULL));
 	for (int i = 0; i < 100; i++) {
-		std::cout << "tamanho: " << gerador->gerarTamanhoCarro() << std::endl;
+		std::cout << "tamanho: " << gerador->gerarProbabilidade() << std::endl;
 	}
 	/* testes validados
 	 Sumidouro* pista = new Sumidouro(1000, 100, false);

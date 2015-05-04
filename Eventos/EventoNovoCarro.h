@@ -8,6 +8,7 @@
 #ifndef EVENTOS_EVENTONOVOCARRO_H_
 #define EVENTOS_EVENTONOVOCARRO_H_
 #include "../Eventos/Evento.cpp"
+#include "../Pista/Pista.cpp"
 
 class EventoNovoCarro: public Evento {
 private:

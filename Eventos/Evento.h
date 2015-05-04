@@ -7,18 +7,26 @@
 
 #ifndef EVENTOS_EVENTO_H_
 #define EVENTOS_EVENTO_H_
+using namespace std;
+
 
 class Evento {
 
+private:
+	string name;
+
 public:
 	int timestamp;
-	Evento(int timestamp);
+
+	Evento(int timestamp, string name);
 
 	int getTimeStamp();
 
 	void setTimeStamp(int timestamp);
 
 	virtual ~Evento();
+
+	string getName();
 
 	bool operator< (const Evento& outro);
 

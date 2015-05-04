@@ -6,10 +6,11 @@
  */
 
 #include "Evento.h"
+using namespace std;
 
-Evento::Evento(int timestamp) {
+Evento::Evento(int timestamp, string name) {
 	this->timestamp = timestamp;
-
+	this->name = name;
 }
 
 int Evento::getTimeStamp(){
@@ -22,6 +23,10 @@ void Evento::setTimeStamp(int timestamp){
 
 Evento::~Evento() {
 	// TODO Auto-generated destructor stub
+}
+
+string Evento::getName() {
+	return this->name;
 }
 
 bool Evento::operator< (const Evento& outro) {

@@ -34,6 +34,15 @@ public:
 	 * */
 	void geraEventosIniciais();
 
+
+	/*
+	 * Classifica e roteia o Evento que chegou no sistema
+	 * */
+	void consomeEvento(EventoNovoCarro* ev);
+	void consomeEvento(EventoChegadaCarro* ev);
+	void consomeEvento(EventoMudancaSemaforo* ev);
+	void consomeEvento(EventoChegadaSemaforo* ev);
+
 	/*
 	 * Evento Cria Novo carro, coloca na pista, gera novo evento Chegada Semaforo
 	 * */
@@ -47,17 +56,17 @@ public:
 	/*
 	 * Evento troca o semaforo de uma pista, pode gerar evento troca de pista
 	 * */
-	void consomeEventoMudancaSemaforo();
+	void consomeEventoMudancaSemaforo(EventoMudancaSemaforo* ev);
 
 	/*
 	 * Evento tira o carro da pista sumidouro, gera log no sistema
 	 * */
-	void consomeEventoChegadaCarro();
+	void consomeEventoChegadaCarro(EventoChegadaCarro* ev);
 
 	/*
 	 * Evento que faz as verificações para gerar o evento troca de pista ou gerar um novo Chegada Semaforo
 	 * */
-	void consomeChegadaSemaforo();
+	void consomeChegadaSemaforo(EventoChegadaSemaforo* ev);
 
 	/*
 	 * Gera o evento novo carro

@@ -47,6 +47,7 @@ void Sistema::geraEventosIniciais() {
 	Pista* destino = origem->getPistasConectadas()->getPosicao(proporcao);
 	EventoNovoCarro* evento = new EventoNovoCarro(
 			geradorAleatorio->gerarTamanhoCarro(), origem, destino, 8);
+	incluiEventoClock(evento);
 }
 
 void Sistema::consomeEventoNovoCarro(EventoNovoCarro* novoCarro) {
@@ -59,11 +60,26 @@ void Sistema::consomeEventoTrocaPista() {
 
 }
 
-void Sistema::consomeEventoMudancaSemaforo();
+void Sistema::consomeEvento(EventoNovoCarro* ev) {
+	consomeEventoNovoCarro(ev);
+}
 
-void Sistema::consomeEventoChegadaCarro();
+void Sistema::consomeEvento(EventoChegadaCarro* ev) {
+	consomeEventoChegadaCarro(ev);
+}
+void Sistema::consomeEvento(EventoMudancaSemaforo* ev) {
+	consomeEventoMudancaSemaforo(ev);
+}
 
-void Sistema::consomeChegadaSemaforo();
+void Sistema::consomeEvento(EventoChegadaSemaforo* ev) {
+	consomeChegadaSemaforo(ev);
+}
+
+void Sistema::consomeEventoMudancaSemaforo(EventoMudancaSemaforo* ev);
+
+void Sistema::consomeEventoChegadaCarro(EventoChegadaCarro* ev);
+
+void Sistema::consomeChegadaSemaforo(EventoChegadaSemaforo* ev);
 
 void Sistema::geraEventoNovoCarro();
 

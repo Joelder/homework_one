@@ -36,4 +36,5 @@ Elemento(const T& info, Elemento<T>* next) {
 	}
 };
 
+
 #endif

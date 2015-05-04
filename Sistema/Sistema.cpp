@@ -12,9 +12,9 @@
 #include <cstdlib>
 #include <ctime>
 
-class EventoChegadaCarro;
-class EventoChegadaSemaforo;
-class EventoMudancaSemaforo;
+//class EventoChegadaCarro;
+//class EventoChegadaSemaforo;
+//class EventoMudancaSemaforo;
 
 Sistema::Sistema() {
 	criaPistas();

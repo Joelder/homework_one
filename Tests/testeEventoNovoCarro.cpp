@@ -10,7 +10,6 @@
 
 #include <iostream>
 
-#include "../Clock/Clock.cpp"
 #include "../Sistema/Sistema.cpp"
 
 int main(int argc, char** argv) {

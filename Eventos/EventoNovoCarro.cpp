@@ -7,12 +7,15 @@
 #ifndef EVENTONOVOCARRO_CPP
 #define EVENTONOVOCARRO_CPP
 #include "EventoNovoCarro.h"
+using namespace std;
 
-EventoNovoCarro::EventoNovoCarro(int tamanhoCarro, Pista* pistaOrigem, Pista* pistaDestino, int timestamp)  {
+EventoNovoCarro::EventoNovoCarro(int tamanhoCarro, Pista* pistaOrigem,
+		Pista* pistaDestino, int timestamp, string name) {
 	this->tamanhoCarro = tamanhoCarro;
 	this->pistaOrigem = pistaOrigem;
 	this->pistaDestino = pistaDestino;
 	this->timestamp = timestamp;
+	this->name = name;
 }
 
 int EventoNovoCarro::getTamanhoCarrro() {
@@ -26,7 +29,6 @@ Pista* EventoNovoCarro::getPistaDestino() {
 Pista* EventoNovoCarro::getPistaOrigem() {
 	return this->pistaOrigem;
 }
-
 
 EventoNovoCarro::~EventoNovoCarro() {
 	// TODO Auto-generated destructor stub

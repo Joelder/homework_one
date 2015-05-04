@@ -8,10 +8,12 @@
 #ifndef EVENTOMUDANCASEMAFORO_CPP
 #define EVENTOMUDANCASEMAFORO_CPP
 #include "EventoMudancaSemaforo.h"
+using namespace std;
 
-EventoMudancaSemaforo::EventoMudancaSemaforo(Pista* pista, int timestamp) {
+EventoMudancaSemaforo::EventoMudancaSemaforo(Pista* pista, int timestamp, string name) {
 	this->pista = pista;
 	this->timestamp = timestamp;
+	this->name = name;
 }
 
 Pista* EventoMudancaSemaforo::getPista(){

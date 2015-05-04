@@ -8,7 +8,7 @@
 #ifndef EVENTOS_EVENTOCHEGADACARRO_H_
 #define EVENTOS_EVENTOCHEGADACARRO_H_
 #include "../Eventos/Evento.cpp"
-
+using namespace std;
 class EventoChegadaCarro: public Evento {
 
 private:
@@ -16,7 +16,7 @@ private:
 	Pista* pista;
 
 public:
-	EventoChegadaCarro(Carro* carro, Pista* pista, int timestamp);
+	EventoChegadaCarro(Carro* carro, Pista* pista, int timestamp, string name);
 
 	virtual ~EventoChegadaCarro();
 

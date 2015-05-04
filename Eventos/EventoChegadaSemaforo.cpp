@@ -8,11 +8,13 @@
 #ifndef EVENTOCHEGADASEMAFORO_CPP
 #define EVENTOCHEGADASEMAFORO_CPP
 #include "EventoChegadaSemaforo.h"
+using namespace std;
 
-EventoChegadaSemaforo::EventoChegadaSemaforo(Carro* carro, Pista* pista, int timestamp) {
+EventoChegadaSemaforo::EventoChegadaSemaforo(Carro* carro, Pista* pista, int timestamp, string name) {
 	this->carro = carro;
 	this->pistaOrigem = pista;
 	this->timestamp = timestamp;
+	this->name = name;
 }
 
 

@@ -12,9 +12,10 @@
 #include <cstdlib>
 #include <ctime>
 
-//class EventoChegadaCarro;
-//class EventoChegadaSemaforo;
-//class EventoMudancaSemaforo;
+class EventoChegadaCarro;
+class EventoChegadaSemaforo;
+class EventoMudancaSemaforo;
+class EventoNovoCarro;
 
 Sistema::Sistema() {
 	criaPistas();
@@ -41,7 +42,7 @@ void Sistema::geraEventosIniciais() {
 	int proporcao = origem->getPistaConectadaProporcao();
 	Pista* destino = origem->getPistasConectadas()->getPosicao(proporcao);
 	EventoNovoCarro* evento = new EventoNovoCarro(
-			geradorAleatorio->gerarTamanhoCarro(), origem, destino, 8);
+			geradorAleatorio->gerarTamanhoCarro(), origem, destino, 8, "NovoCarro");
 	incluiEventoClock(evento);
 }
 
@@ -70,19 +71,33 @@ void Sistema::consomeEvento(EventoChegadaSemaforo* ev) {
 	consomeChegadaSemaforo(ev);
 }
 
-void Sistema::consomeEventoMudancaSemaforo(EventoMudancaSemaforo* ev);
+void Sistema::consomeEventoMudancaSemaforo(EventoMudancaSemaforo* ev){
 
-void Sistema::consomeEventoChegadaCarro(EventoChegadaCarro* ev);
+}
 
-void Sistema::consomeChegadaSemaforo(EventoChegadaSemaforo* ev);
+void Sistema::consomeEventoChegadaCarro(EventoChegadaCarro* ev){
 
-void Sistema::geraEventoNovoCarro();
+}
 
-void Sistema::geraEventoChegadaSemaforo();
+void Sistema::consomeChegadaSemaforo(EventoChegadaSemaforo* ev){
 
-void Sistema::geraEventoChegadaCarro();
+}
 
-void Sistema::geraEventoTrocaPista();
+void Sistema::geraEventoNovoCarro() {
+
+}
+
+void Sistema::geraEventoChegadaSemaforo(){
+
+}
+
+void Sistema::geraEventoChegadaCarro(){
+
+}
+
+void Sistema::geraEventoTrocaPista() {
+
+}
 
 void Sistema::incluiEventoClock(Evento* evento) {
 	this->clock->adicionaEvento(evento);

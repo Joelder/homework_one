@@ -10,7 +10,7 @@
 #include "Sumidouro.h"
 
 Sumidouro::Sumidouro(int proporcao, int tamanho, int velocidade, bool semaforo) :
-		Pista(NULL, tamanho, velocidade, true) {
+		Pista(0, tamanho, velocidade, true) {
 }
 
 Sumidouro::~Sumidouro() {

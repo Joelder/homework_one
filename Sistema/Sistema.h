@@ -20,6 +20,7 @@
 #include "../Eventos/EventoNovoCarro.cpp"
 #include "../Eventos/EventoTrocaPista.cpp"
 
+class Carro;
 class Sistema {
 protected:
 	GeradorPistas* gerador;

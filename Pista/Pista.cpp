@@ -69,7 +69,7 @@ void Pista::conectarPistas(Pista* pista1, Pista* pista2, Pista* pista3) {
 }
 
 bool Pista::transferirCarro(Pista* pista) {
-	Carro* auxiliar = FilaEnc::primeiro();
+	Carro* auxiliar = FilaEnc<Carro*>::primeiro();
 	if (this->semaforo
 			&& pista->getEspacoRestante() >= auxiliar->getTamanho()) {
 		pista->adicionarCarroPista(auxiliar);

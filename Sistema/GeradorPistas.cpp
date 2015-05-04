@@ -43,42 +43,42 @@ GeradorPistas::~GeradorPistas() {
 //Sumidouros
 Pista* GeradorPistas::getPistaO1Oeste() {
 	if (this->pistaO1Oeste == NULL) {
-		this->pistaO1Oeste = new Sumidouro(NULL, 2000, 80, true);
+		this->pistaO1Oeste = new Sumidouro(0, 2000, 80, true);
 	}
 	return this->pistaO1Oeste;
 }
 
 Pista* GeradorPistas::getPistaN1Norte() {
 	if (this->pistaN1Norte == NULL) {
-		this->pistaN1Norte = new Sumidouro(NULL, 500, 60, true);
+		this->pistaN1Norte = new Sumidouro(0, 500, 60, true);
 	}
 	return this->pistaN1Norte;
 }
 
 Pista* GeradorPistas::getPistaS1Sul() {
 	if (this->pistaS1Sul == NULL) {
-		this->pistaS1Sul = new Sumidouro(NULL, 500, 60, true);
+		this->pistaS1Sul = new Sumidouro(0, 500, 60, true);
 	}
 	return this->pistaS1Sul;
 }
 
 Pista* GeradorPistas::getPistaN2Norte() {
 	if (this->pistaN2Norte == NULL) {
-		this->pistaN2Norte = new Sumidouro(NULL, 500, 40, true);
+		this->pistaN2Norte = new Sumidouro(0, 500, 40, true);
 	}
 	return this->pistaN2Norte;
 }
 
 Pista* GeradorPistas::getPistaL1Leste() {
 	if (this->pistaL1Leste == NULL) {
-		this->pistaL1Leste = new Sumidouro(NULL, 400, 30, true);
+		this->pistaL1Leste = new Sumidouro(0, 400, 30, true);
 	}
 	return this->pistaL1Leste;
 }
 
 Pista* GeradorPistas::getPistaS2Sul() {
 	if (this->pistaS2Sul == NULL) {
-		this->pistaS2Sul = new Sumidouro(NULL, 500, 40, true);
+		this->pistaS2Sul = new Sumidouro(0, 500, 40, true);
 	}
 	return this->pistaS2Sul;
 }

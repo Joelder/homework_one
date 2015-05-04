@@ -72,7 +72,8 @@ void Sistema::consomeEventoMudancaSemaforo(Evento* ev){
 }
 
 void Sistema::consomeEventoChegadaCarro(Evento* ev){
-
+	Pista* pista = ev->getPistaDestino();
+	pista->retirarCarroPista();
 }
 
 void Sistema::consomeChegadaSemaforo(Evento* ev){

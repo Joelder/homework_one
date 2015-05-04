@@ -89,7 +89,6 @@ void Sistema::geraEventoChegadaSemaforo(){
 }
 
 void Sistema::geraEventoChegadaCarro(){
-
 }
 
 void Sistema::geraEventoTrocaPista() {

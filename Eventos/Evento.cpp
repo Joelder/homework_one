@@ -7,11 +7,10 @@
 #ifndef EVENTO_CPP
 #define EVENTO_CPP
 #include "Evento.h"
-using namespace std;
 
-Evento::Evento(int timestamp, string name, int tamanhoCarro, Pista* pistaOrigem, Pista* pistaDestino, Carro* carro) {
+Evento::Evento(int timestamp, int id, int tamanhoCarro, Pista* pistaOrigem, Pista* pistaDestino, Carro* carro) {
 	this->timestamp = timestamp;
-	this->name = name;
+	this->id = id;
 	this->tamanhoCarro = tamanhoCarro;
 	this->pistaOrigem = pistaOrigem;
 	this->pistaDestino = pistaDestino;
@@ -30,8 +29,8 @@ Evento::~Evento() {
 	// TODO Auto-generated destructor stub
 }
 
-string Evento::getName() {
-	return this->name;
+int Evento::getId() {
+	return this->id;
 }
 
 int Evento::getTamanhoCarrro() {

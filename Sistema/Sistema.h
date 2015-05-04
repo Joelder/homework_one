@@ -7,10 +7,6 @@
 
 #ifndef SISTEMA_SISTEMA_H_
 #define SISTEMA_SISTEMA_H_
-#include "../Eventos/EventoNovoCarro.cpp"
-#include "../Eventos/EventoChegadaCarro.cpp"
-#include "../Eventos/EventoMudancaSemaforo.cpp"
-#include "../Eventos/EventoChegadaSemaforo.cpp"
 #include "../Clock/Clock.cpp"
 #include "GeradorPistas.cpp"
 class Sistema {
@@ -37,18 +33,16 @@ public:
 	 * */
 	void geraEventosIniciais();
 
+	void consomeEvento(Evento* ev);
+
 	/*
 	 * Classifica e roteia o Evento que chegou no sistema
 	 * */
-	void consomeEvento(EventoNovoCarro* ev);
-	void consomeEvento(EventoChegadaCarro* ev);
-	void consomeEvento(EventoMudancaSemaforo* ev);
-	void consomeEvento(EventoChegadaSemaforo* ev);
 
 	/*
 	 * Evento Cria Novo carro, coloca na pista, gera novo evento Chegada Semaforo
 	 * */
-	void consomeEventoNovoCarro(EventoNovoCarro* novoCarro);
+	void consomeEventoNovoCarro(Evento* novoCarro);
 
 	/*
 	 * Evento Troca um carro de uma pista para outra
@@ -58,17 +52,17 @@ public:
 	/*
 	 * Evento troca o semaforo de uma pista, pode gerar evento troca de pista
 	 * */
-	void consomeEventoMudancaSemaforo(EventoMudancaSemaforo* ev);
+	void consomeEventoMudancaSemaforo(Evento* ev);
 
 	/*
 	 * Evento tira o carro da pista sumidouro, gera log no sistema
 	 * */
-	void consomeEventoChegadaCarro(EventoChegadaCarro* ev);
+	void consomeEventoChegadaCarro(Evento* ev);
 
 	/*
 	 * Evento que faz as verificações para gerar o evento troca de pista ou gerar um novo Chegada Semaforo
 	 * */
-	void consomeChegadaSemaforo(EventoChegadaSemaforo* ev);
+	void consomeChegadaSemaforo(Evento* ev);
 
 	/*
 	 * Gera o evento novo carro
@@ -98,6 +92,7 @@ public:
 	Evento* retiraEventoClock();
 
 	Clock* getClock();
+	GeradorPistas* getGerador();
 };
 
 #endif /* SISTEMA_SISTEMA_H_ */

@@ -7,12 +7,13 @@
 
 #ifndef EVENTO_H_
 #define EVENTO_H_
-using namespace std;
+#include "../Pista/Fonte.cpp"
+#include "../Pista/Sumidouro.cpp"
 
 class Evento {
 
 private:
-	string name;
+	int id;
 	int tamanhoCarro;
 	Pista* pistaOrigem;
 	Pista* pistaDestino;
@@ -41,7 +42,7 @@ private:
 public:
 	int timestamp;
 
-	Evento(int timestamp, string name, int tamanhoCarro, Pista* pistaOrigem,
+	Evento(int timestamp, int id, int tamanhoCarro, Pista* pistaOrigem,
 			Pista* pistaDestino, Carro* carro);
 
 	int getTimeStamp();
@@ -50,7 +51,7 @@ public:
 
 	virtual ~Evento();
 
-	string getName();
+	int getId();
 
 	int getTamanhoCarrro();
 

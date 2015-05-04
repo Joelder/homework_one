@@ -12,11 +12,6 @@
 #include <cstdlib>
 #include <ctime>
 
-class EventoChegadaCarro;
-class EventoChegadaSemaforo;
-class EventoMudancaSemaforo;
-class EventoNovoCarro;
-
 Sistema::Sistema() {
 	criaPistas();
 	this->clock = new Clock();
@@ -41,12 +36,28 @@ void Sistema::geraEventosIniciais() {
 	Pista* origem = this->gerador->getPistaO1Leste();
 	int proporcao = origem->getPistaConectadaProporcao();
 	Pista* destino = origem->getPistasConectadas()->getPosicao(proporcao);
-	Evento* evento = new EventoNovoCarro(
-			geradorAleatorio->gerarTamanhoCarro(), origem, destino, 8, "NovoCarro");
+	Evento* evento = new Evento(8, 1, geradorAleatorio->gerarTamanhoCarro(), origem, destino, NULL);
 	incluiEventoClock(evento);
 }
 
-void Sistema::consomeEventoNovoCarro(EventoNovoCarro* novoCarro) {
+void Sistema::consomeEvento(Evento* ev) {
+	switch(ev->getId()) {
+	case 1:
+		consomeEventoNovoCarro(ev);
+		break;
+	case 2:
+		consomeEventoChegadaCarro(ev);
+		break;
+	case 3:
+		consomeChegadaSemaforo(ev);
+		break;
+	case 4:
+		consomeEventoMudancaSemaforo(ev);
+		break;
+	}
+}
+
+void Sistema::consomeEventoNovoCarro(Evento* novoCarro) {
 	Carro* carro = criaCarro(novoCarro->getTamanhoCarrro());
 	carro->setDestino(novoCarro->getPistaDestino());
 	novoCarro->getPistaOrigem()->adicionarCarroPista(carro);
@@ -56,30 +67,15 @@ void Sistema::consomeEventoTrocaPista() {
 
 }
 
-void Sistema::consomeEvento(EventoNovoCarro* ev) {
-	consomeEventoNovoCarro(ev);
-}
-
-void Sistema::consomeEvento(EventoChegadaCarro* ev) {
-	consomeEventoChegadaCarro(ev);
-}
-void Sistema::consomeEvento(EventoMudancaSemaforo* ev) {
-	consomeEventoMudancaSemaforo(ev);
-}
-
-void Sistema::consomeEvento(EventoChegadaSemaforo* ev) {
-	consomeChegadaSemaforo(ev);
-}
-
-void Sistema::consomeEventoMudancaSemaforo(EventoMudancaSemaforo* ev){
+void Sistema::consomeEventoMudancaSemaforo(Evento* ev){
 
 }
 
-void Sistema::consomeEventoChegadaCarro(EventoChegadaCarro* ev){
+void Sistema::consomeEventoChegadaCarro(Evento* ev){
 
 }
 
-void Sistema::consomeChegadaSemaforo(EventoChegadaSemaforo* ev){
+void Sistema::consomeChegadaSemaforo(Evento* ev){
 
 }
 
@@ -109,5 +105,9 @@ Evento* Sistema::retiraEventoClock() {
 
 Clock* Sistema::getClock() {
 	return this->clock;
+}
+
+GeradorPistas* Sistema::getGerador() {
+	return this->gerador;
 }
 #endif

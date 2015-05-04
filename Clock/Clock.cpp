@@ -24,7 +24,7 @@ void Clock::adicionaEvento(Evento* ev) {
 }
 
 Evento* Clock::retiraEvento() {
-	return this->retiraDoInicio();
+	return this->eventos->retiraDoInicio();
 }
 
 ListaEnc<Evento*>* Clock::getEventos() {

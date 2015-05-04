@@ -7,10 +7,11 @@
 
 #include "EventoNovoCarro.h"
 
-EventoNovoCarro::EventoNovoCarro(int tamanhoCarro, Pista* pistaOrigem, Pista* pistaDestino) {
+EventoNovoCarro::EventoNovoCarro(int tamanhoCarro, Pista* pistaOrigem, Pista* pistaDestino, int timestamp)  {
 	this->tamanhoCarro = tamanhoCarro;
 	this->pistaOrigem = pistaOrigem;
 	this->pistaDestino = pistaDestino;
+	this->timestamp = timestamp;
 }
 
 int EventoNovoCarro::getTamanhoCarrro() {

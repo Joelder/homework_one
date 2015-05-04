@@ -16,7 +16,7 @@ private:
 	Pista* pistaDestino;
 
 public:
-	EventoNovoCarro(int tamanhoCarro, Pista* pistaOrigem, Pista* pistaDestino);
+	EventoNovoCarro(int tamanhoCarro, Pista* pistaOrigem, Pista* pistaDestino, int timestamp);
 
 	virtual ~EventoNovoCarro();
 

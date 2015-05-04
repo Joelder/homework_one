@@ -53,8 +53,12 @@ Lista<Pista*>* Pista::getPistasConectadas() {
 }
 
 void Pista::adicionarCarroPista(Carro* carro) {
-	FilaEnc<Carro*>::inclui(carro);
-	this->espacoRestante -= carro->getTamanho();
+	if (carro->getTamanho() > this->espacoRestante) {
+		return;
+	} else {
+		FilaEnc<Carro*>::inclui(carro);
+		this->espacoRestante -= carro->getTamanho();
+	}
 }
 
 void Pista::retirarCarroPista() {

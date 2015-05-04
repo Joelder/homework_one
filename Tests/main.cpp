@@ -2,20 +2,16 @@
 #define MAIN_CPP
 #include <iostream>
 #include <stdlib.h>
-//#include "../Pista/Sumidouro.cpp"
+#include "../Pista/Sumidouro.cpp"
 #include "../util/GeradorAleatorios.cpp"
 
 int main(int argc, char** argv) {
-	GeradorAleatorios* gerador = new GeradorAleatorios();
-	srand(time(NULL));
-	for (int i = 0; i < 100; i++) {
-		std::cout << "tamanho: " << gerador->gerarProbabilidade() << std::endl;
-	}
-	/* testes validados
-	 Sumidouro* pista = new Sumidouro(1000, 100, false);
-	 Pista* pista2 = new Pista(1000, 100, false);
-	 Pista* pista3 = new Pista(1000, 100, false);
-	 Pista* pista4 = new Pista(1000, 100, false);
+
+
+	 Sumidouro* pista = new Sumidouro(1, 1000, 100, false);
+	 Pista* pista2 = new Pista(1, 1000, 100, false);
+	 Pista* pista3 = new Pista(1, 1000, 100, false);
+	 Pista* pista4 = new Pista(1, 1000, 100, false);
 	 pista->conectarPistas(pista2, pista3, pista4);
 
 	 Carro* car = new Carro(50);
@@ -62,7 +58,7 @@ int main(int argc, char** argv) {
 	 std::cout << "tamanho pista 4 apos transferencia: " << tamanhoNovo4
 	 << std::endl;
 	 std::cout << "semaforo apos troca: " << semaforo2 << std::endl;
-	 */
+
 	/* Testes validados
 	 Pista* pista = new Pista(1000, 100);
 	 Pista* pista2 = new Pista(1000, 100);

@@ -31,6 +31,7 @@ int main(int argc, char** argv) {
 	std::cout << "posicao 2 : " << posicaoEvento2 << std::endl;
 	std::cout << "posicao 3 : " << posicaoEvento3 << std::endl;
 	return 0;
+
 }
 
 #endif

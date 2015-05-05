@@ -13,7 +13,8 @@
 #include <cstdlib>
 #include <ctime>
 
-Sistema::Sistema() {
+Sistema::Sistema(int tempo) {
+	this->tempo = tempo;
 	criaPistas();
 	this->clock = new Clock();
 }
@@ -31,11 +32,10 @@ Carro* Sistema::criaCarro(int tamanho) {
 	return carro;
 }
 
-void Sistema::geraEventosIniciais(int tempo) {
+void Sistema::geraEventosIniciais() {
 
-	geraSemaforos(tempo);
-
-
+	geraSemaforos(this->tempo);
+/*
 	GeradorAleatorios* geradorAleatorio = new GeradorAleatorios();
 	srand(time(NULL));
 	Pista* origem = this->gerador->getPistaO1Leste();
@@ -44,6 +44,7 @@ void Sistema::geraEventosIniciais(int tempo) {
 	Evento* evento = new Evento(8, 1, geradorAleatorio->gerarTamanhoCarro(),
 			origem, destino, NULL);
 	incluiEventoClock(evento);
+*/
 }
 
 void Sistema::consomeEvento(Evento* ev) {
@@ -185,8 +186,8 @@ void Sistema::consomeChegadaSemaforo(Evento* ev) {
 	}
 }
 
-void Sistema::geraSemaforos(int time) {
-	int valorCiclos = (int) time/155;
+void Sistema::geraSemaforos(int tempo) {
+	int valorCiclos = (int) (tempo/155);
 	int a = 0;
 	Pista* O1Leste = this->gerador->getPistaO1Leste();
 	Pista* S1Norte = this->gerador->getPistaS1Norte();
@@ -196,7 +197,7 @@ void Sistema::geraSemaforos(int time) {
 	Pista* S2Norte = this->gerador->getPistaS2Norte();
 	Pista* L1Oeste = this->gerador->getPistaL1Oeste();
 	Pista* N2Sul = this->gerador->getPistaN2Sul();
-	for(int i=0; i<=valorCiclos; i++) {
+	for(int i=0; i < valorCiclos; i++) {
 		geraEventoTrocaSemaforo(O1Leste, a);
 		geraEventoTrocaSemaforo(C1Leste, a);
 		a += 60;

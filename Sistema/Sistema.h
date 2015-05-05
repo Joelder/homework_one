@@ -14,8 +14,9 @@ class Sistema {
 protected:
 	GeradorPistas* gerador;
 	Clock* clock;
+	int tempo;
 public:
-	Sistema();
+	Sistema(int tempo);
 
 	virtual ~Sistema();
 
@@ -32,7 +33,7 @@ public:
 	/*
 	 * Big Bang e no inicio fez se os eventos
 	 * */
-	void geraEventosIniciais(int time);
+	void geraEventosIniciais();
 
 	void consomeEvento(Evento* ev);
 

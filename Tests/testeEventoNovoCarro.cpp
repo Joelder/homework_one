@@ -13,7 +13,7 @@
 #include "../Sistema/Sistema.cpp"
 
 int main(int argc, char** argv) {
-	Sistema* sistema = new Sistema();
+	Sistema* sistema = new Sistema(600);
 	int antesDosEventosIniciais = sistema->getClock()->getEventos()->size;
 	sistema->geraEventosIniciais();
 	int depoisDosEventosIniciais = sistema->getClock()->getEventos()->size;

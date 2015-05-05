@@ -13,7 +13,7 @@
 #include "../Sistema/Sistema.cpp"
 
 int main(int argc, char** argv) {
-	Sistema* sistema = new Sistema();
+	Sistema* sistema = new Sistema(600);
 	Pista* pistaOrigem = sistema->getGerador()->getPistaO1Leste();
 	Pista* pistaDestino = sistema->getGerador()->getPistaS1Sul();
 	//int tamanhoPista = sistema->getGerador()->getPistaO1Leste()->size;

@@ -104,9 +104,20 @@ public:
 	void geraEventoTrocaSemaforo(Pista* pista, int timestamp);
 
 	/*
+	 * Gera o evento Novo carro
+	 * */
+	void geraEventoNovoCarro(int tamanhoCarro, Pista* pistaOrigem,
+			Pista* pistaDestino, int timestamp);
+
+	/*
 	 * Gera Semaforos
 	 * */
 	void geraSemaforos(int time);
+
+	/*
+	 * Gera Semaforos
+	 * */
+	void geraNovosCarros(int time);
 
 	/*
 	 * Inclui no clock o evento recém gerado

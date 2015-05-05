@@ -35,16 +35,16 @@ Carro* Sistema::criaCarro(int tamanho) {
 void Sistema::geraEventosIniciais() {
 
 	geraSemaforos(this->tempo);
-/*
-	GeradorAleatorios* geradorAleatorio = new GeradorAleatorios();
-	srand(time(NULL));
-	Pista* origem = this->gerador->getPistaO1Leste();
-	int proporcao = origem->getPistaConectadaProporcao();
-	Pista* destino = origem->getPistasConectadas()->getPosicao(proporcao);
-	Evento* evento = new Evento(8, 1, geradorAleatorio->gerarTamanhoCarro(),
-			origem, destino, NULL);
-	incluiEventoClock(evento);
-*/
+	/*
+	 GeradorAleatorios* geradorAleatorio = new GeradorAleatorios();
+	 srand(time(NULL));
+	 Pista* origem = this->gerador->getPistaO1Leste();
+	 int proporcao = origem->getPistaConectadaProporcao();
+	 Pista* destino = origem->getPistasConectadas()->getPosicao(proporcao);
+	 Evento* evento = new Evento(8, 1, geradorAleatorio->gerarTamanhoCarro(),
+	 origem, destino, NULL);
+	 incluiEventoClock(evento);
+	 */
 }
 
 void Sistema::consomeEvento(Evento* ev) {
@@ -186,8 +186,86 @@ void Sistema::consomeChegadaSemaforo(Evento* ev) {
 	}
 }
 
+void Sistema::geraNovosCarros(int tempo) {
+	int timestamp = 0;
+	Pista* O1Leste = this->gerador->getPistaO1Leste();
+	Pista* S1Norte = this->gerador->getPistaS1Norte();
+	Pista* C1Oeste = this->gerador->getPistaC1Oeste();
+	Pista* N1Sul = this->gerador->getPistaN1Sul();
+	Pista* C1Leste = this->gerador->getPistaC1Leste();
+	Pista* S2Norte = this->gerador->getPistaS2Norte();
+	Pista* L1Oeste = this->gerador->getPistaL1Oeste();
+	Pista* N2Sul = this->gerador->getPistaN2Sul();
+	GeradorAleatorios* geradorAleatorio = new GeradorAleatorios();
+	srand(time(NULL));
+	// Entre 8 e 12 := 8+(rand()%5)
+	// Entre 15 e 25 := 15+(rand()%11)
+	// Entre 23 e 37 := 23+(rand()%15)
+	// Entre 45 e 75 := 45+(rand()%31)
+
+	while (timestamp < tempo) {
+		timestamp = timestamp + (8 + (rand() % 5));
+		int proporcao = O1Leste->getPistaConectadaProporcao();
+		Lista<Pista*>* pistas = O1Leste->getPistasConectadas();
+		Pista* pista = pistas->getPosicao(proporcao);
+		geraEventoNovoCarro(geradorAleatorio->gerarTamanhoCarro(), O1Leste,
+				pista, timestamp);
+
+	}
+
+	timestamp = 0;
+	while (timestamp < tempo) {
+		timestamp = timestamp + (23 + (rand() % 15));
+		int proporcao = S1Norte->getPistaConectadaProporcao();
+		Lista<Pista*>* pistas = S1Norte->getPistasConectadas();
+		Pista* pista = pistas->getPosicao(proporcao);
+		geraEventoNovoCarro(geradorAleatorio->gerarTamanhoCarro(), S1Norte,
+				pista, timestamp);
+	}
+
+	timestamp = 0;
+	while (timestamp < tempo) {
+		timestamp = timestamp + (45 + (rand() % 31));
+		int proporcao = S2Norte->getPistaConectadaProporcao();
+		Lista<Pista*>* pistas = S2Norte->getPistasConectadas();
+		Pista* pista = pistas->getPosicao(proporcao);
+		geraEventoNovoCarro(geradorAleatorio->gerarTamanhoCarro(), S2Norte,
+				pista, timestamp);
+	}
+
+	timestamp = 0;
+	while (timestamp < tempo) {
+		timestamp = timestamp + (8 + (rand() % 5));
+		int proporcao = L1Oeste->getPistaConectadaProporcao();
+		Lista<Pista*>* pistas = L1Oeste->getPistasConectadas();
+		Pista* pista = pistas->getPosicao(proporcao);
+		geraEventoNovoCarro(geradorAleatorio->gerarTamanhoCarro(), L1Oeste,
+				pista, timestamp);
+	}
+
+	timestamp = 0;
+	while (timestamp < tempo) {
+		timestamp = timestamp + (15 + (rand() % 11));
+		int proporcao = N2Sul->getPistaConectadaProporcao();
+		Lista<Pista*>* pistas = N2Sul->getPistasConectadas();
+		Pista* pista = pistas->getPosicao(proporcao);
+		geraEventoNovoCarro(geradorAleatorio->gerarTamanhoCarro(), N2Sul, pista,
+				timestamp);
+	}
+
+	timestamp = 0;
+	while (timestamp < tempo) {
+		timestamp = timestamp + (15 + (rand() % 11));
+		int proporcao = N1Sul->getPistaConectadaProporcao();
+		Lista<Pista*>* pistas = N1Sul->getPistasConectadas();
+		Pista* pista = pistas->getPosicao(proporcao);
+		geraEventoNovoCarro(geradorAleatorio->gerarTamanhoCarro(), N1Sul, pista,
+				timestamp);
+	}
+}
+
 void Sistema::geraSemaforos(int tempo) {
-	int valorCiclos = (int) (tempo/155);
+	int valorCiclos = (int) (tempo / 155);
 	int a = 0;
 	Pista* O1Leste = this->gerador->getPistaO1Leste();
 	Pista* S1Norte = this->gerador->getPistaS1Norte();
@@ -197,7 +275,7 @@ void Sistema::geraSemaforos(int tempo) {
 	Pista* S2Norte = this->gerador->getPistaS2Norte();
 	Pista* L1Oeste = this->gerador->getPistaL1Oeste();
 	Pista* N2Sul = this->gerador->getPistaN2Sul();
-	for(int i=0; i < valorCiclos; i++) {
+	for (int i = 0; i < valorCiclos; i++) {
 		geraEventoTrocaSemaforo(O1Leste, a);
 		geraEventoTrocaSemaforo(C1Leste, a);
 		a += 60;
@@ -223,14 +301,19 @@ void Sistema::geraSemaforos(int tempo) {
 		geraEventoTrocaSemaforo(N2Sul, a);
 	}
 
-
 }
 
 void Sistema::geraEventoTrocaSemaforo(Pista* pista, int timestamp) {
-	Evento* evento = new Evento(timestamp, 4, 0, pista, NULL, NULL );
+	Evento* evento = new Evento(timestamp, 4, 0, pista, NULL, NULL);
 	incluiEventoClock(evento);
 }
 
+void Sistema::geraEventoNovoCarro(int tamanhoCarro, Pista* pistaOrigem,
+		Pista* pistaDestino, int timestamp) {
+	Evento* evento = new Evento(timestamp, 1, tamanhoCarro, pistaOrigem,
+			pistaDestino, NULL);
+	incluiEventoClock(evento);
+}
 
 void Sistema::incluiEventoClock(Evento* evento) {
 	this->clock->adicionaEvento(evento);

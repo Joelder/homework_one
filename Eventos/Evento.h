@@ -35,6 +35,11 @@ private:
 	 * */
 
 	/*
+	 * Evento Chegada Final Fila
+	 * @params: pistaOrigem, carro
+	 * */
+
+	/*
 	 * Evento Mudança Semaforo
 	 * @params: pistaOrigem
 	 * */

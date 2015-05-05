@@ -47,7 +47,7 @@ public:
 	/*
 	 * Evento Troca um carro de uma pista para outra
 	 * */
-	void consomeEventoTrocaPista();
+	void consomeEventoTrocaPista(EventoTrocaPista* ev, Pista* pistaOrigem, int time);
 
 	/*
 	 * Evento troca o semaforo de uma pista, pode gerar evento troca de pista
@@ -65,6 +65,11 @@ public:
 	void consomeChegadaSemaforo(Evento* ev);
 
 	/*
+	 * Evento que faz as verificações para gerar o evento troca de pista ou gerar um novo Chegada Semaforo
+	 * */
+	void consomeChegadaFinalFila(Evento* ev);
+
+	/*
 	 * Gera o evento novo carro
 	 * */
 	void geraEventoNovoCarro();
@@ -72,17 +77,27 @@ public:
 	/*
 	 * Gera o evento chegada semaforo
 	 * */
-	void geraEventoChegadaSemaforo();
+	void geraEventoChegadaSemaforo(Carro* carro, Pista* pista, int time);
+
+	/*
+	 * Gera o evento chegada semaforo
+	 * */
+	void geraEventoDeslocamentoChegadaSemaforo(Carro* carro, Pista* pista, int time);
+
+	/*
+	 * Gera o evento chegada semaforo
+	 * */
+	void geraEventoChegadaFila(Carro* carro, Pista* pistaOrigem, int time);
 
 	/*
 	 * Gera o evento chegada carro
 	 * */
-	void geraEventoChegadaCarro();
+	void geraEventoChegadaCarro(Pista* pista, int timestamp);
 
 	/*
 	 * Gera o evento troca pista
 	 * */
-	void geraEventoTrocaPista();
+	void geraEventoTrocaPista(Carro* carro, Pista* pistaOrigem, int timestamp);
 
 	/*
 	 * Inclui no clock o evento recém gerado

@@ -12,6 +12,7 @@
 Carro::Carro(int tamanho) {
 	this->tamanho = tamanho;
 	this->destino = NULL;
+	this->carroChegou = false;
 }
 
 Carro::~Carro() {
@@ -28,5 +29,13 @@ void Carro::setDestino(Pista* pista) {
 
 Pista* Carro::getDestino() {
 	return this->destino;
+}
+
+bool Carro::getCarroChegou(){
+	return this->carroChegou;
+}
+
+void Carro::setCarroChegou(){
+	this->carroChegou = !this->carroChegou;
 }
 

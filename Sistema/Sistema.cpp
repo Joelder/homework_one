@@ -8,6 +8,7 @@
 #ifndef SISTEMA_CPP
 #define SISTEMA_CPP
 #include "Sistema.h"
+#include <iostream>
 
 #include <cstdlib>
 #include <ctime>
@@ -118,7 +119,8 @@ void Sistema::consomeEventoTrocaPista(EventoTrocaPista* evento,
 	}
 	if (pistaDestino->getTamanho() == 300) {
 		int proporcao = pistaDestino->getPistaConectadaProporcao();
-		Pista* pista = pistaDestino->getPistasConectadas()[proporcao];
+		Lista<Pista*>* pistas = pistaDestino->getPistasConectadas();
+		Pista* pista = pistas->getPosicao(proporcao);
 		pistaDestino->ultimo()->setDestino(pista);
 		if (pistaDestino->size == 1) {
 			geraEventoChegadaSemaforo(pistaDestino->ultimo(), pistaDestino,
@@ -126,7 +128,6 @@ void Sistema::consomeEventoTrocaPista(EventoTrocaPista* evento,
 		} else {
 			geraEventoChegadaFila(pistaDestino->ultimo(), pistaDestino, time);
 		}
-
 	} else {
 		geraEventoChegadaCarro(pistaDestino, time);
 	}
@@ -136,6 +137,9 @@ void Sistema::geraEventoChegadaCarro(Pista* pista, int timestamp) {
 	int velocidade = (int) (pista->getVelocidade() / 3.6);
 	int tempo = (int) (pista->getTamanho() / velocidade);
 	int time = timestamp + tempo;
+	std::cout << "timestamp: " << timestamp << std::endl;
+	std::cout << "tempo: " << tempo << std::endl;
+	std::cout << "time: " << time << std::endl;
 	Evento* evento = new Evento(time, 2, 0, NULL, pista, NULL);
 	this->clock->adicionaEvento(evento);
 }

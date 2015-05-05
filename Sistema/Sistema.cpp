@@ -75,13 +75,15 @@ void Sistema::consomeEventoNovoCarro(Evento* ev) {
 
 }
 
-
-void Sistema::geraEventoChegadaFila(Carro* carro, Pista* pistaOrigem, int time) {
+void Sistema::geraEventoChegadaFila(Carro* carro, Pista* pistaOrigem,
+		int time) {
 	int velocidade = (int) (pistaOrigem->getVelocidade() / 3.6);
 	int tempo = (int) (pistaOrigem->getEspacoRestante() / velocidade);
-	int tamanhofila =  pistaOrigem->getTamanho() - pistaOrigem->getEspacoRestante();
+	int tamanhofila = pistaOrigem->getTamanho()
+			- pistaOrigem->getEspacoRestante();
 	int timestamp = tempo + time;
-	Evento* evento = new Evento(timestamp, 5, tamanhofila, pistaOrigem, NULL, carro);
+	Evento* evento = new Evento(timestamp, 5, tamanhofila, pistaOrigem, NULL,
+			carro);
 	this->clock->adicionaEvento(evento);
 
 }
@@ -91,8 +93,8 @@ void Sistema::consomeChegadaFinalFila(Evento* ev) {
 	Carro* carro = ev->getCarro();
 	int velocidade = (int) (pistaOrigem->getVelocidade() / 3.6);
 	// POG By Thomas Feijoo
-	int time = (int)(ev->getTamanhoCarrro()/velocidade);
-	int timestamp =  time + ev->getTimeStamp();
+	int time = (int) (ev->getTamanhoCarrro() / velocidade);
+	int timestamp = time + ev->getTimeStamp();
 	if (pistaOrigem->size == 1) {
 		geraEventoChegadaSemaforo(carro, pistaOrigem, timestamp);
 	} else {
@@ -100,40 +102,45 @@ void Sistema::consomeChegadaFinalFila(Evento* ev) {
 	}
 }
 
-void Sistema::geraEventoTrocaPista(Carro* carro, Pista* pistaOrigem, int timestamp) {
+void Sistema::geraEventoTrocaPista(Carro* carro, Pista* pistaOrigem,
+		int timestamp) {
 	EventoTrocaPista* evento = new EventoTrocaPista(carro);
 	consomeEventoTrocaPista(evento, pistaOrigem, timestamp);
 }
 
-void Sistema::consomeEventoTrocaPista(EventoTrocaPista* evento, Pista* pistaOrigem, int time) {
+void Sistema::consomeEventoTrocaPista(EventoTrocaPista* evento,
+		Pista* pistaOrigem, int time) {
 	Pista* pistaDestino = evento->getCarro()->getDestino();
 	pistaOrigem->transferirCarro(pistaDestino);
-	geraEventoDeslocamentoChegadaSemaforo(pistaOrigem->primeiro(), pistaOrigem, time);
+	if (pistaOrigem->size > 0 && pistaOrigem->primeiro()->getCarroChegou()) {
+		geraEventoDeslocamentoChegadaSemaforo(pistaOrigem->primeiro(),
+				pistaOrigem, time);
+	}
 	geraEventoChegadaCarro(pistaDestino, time);
 }
-
 
 void Sistema::geraEventoChegadaCarro(Pista* pista, int timestamp) {
 	int velocidade = (int) (pista->getVelocidade() / 3.6);
 	int tempo = (int) (pista->getTamanho() / velocidade);
 	int time = timestamp + tempo;
 	Evento* evento = new Evento(time, 2, 0, NULL, pista, NULL);
+	this->clock->adicionaEvento(evento);
 }
 
-
-void Sistema::geraEventoDeslocamentoChegadaSemaforo(Carro* carro, Pista* pistaOrigem, int time) {
-		Evento* evento = new Evento(time+2, 3, 0, pistaOrigem, NULL, carro);
-		this->clock->adicionaEvento(evento);
+void Sistema::geraEventoDeslocamentoChegadaSemaforo(Carro* carro,
+		Pista* pistaOrigem, int time) {
+	Evento* evento = new Evento(time + 2, 3, 0, pistaOrigem, NULL, carro);
+	this->clock->adicionaEvento(evento);
 }
 
-void Sistema::geraEventoChegadaSemaforo(Carro* carro, Pista* pistaOrigem, int time) {
-		int velocidade = (int) (pistaOrigem->getVelocidade() / 3.6);
-		int tempo = (int) (pistaOrigem->getTamanho() / velocidade);
-		int timestamp = tempo + time;
-		Evento* evento = new Evento(timestamp, 3, 0, pistaOrigem, NULL, carro);
-		this->clock->adicionaEvento(evento);
+void Sistema::geraEventoChegadaSemaforo(Carro* carro, Pista* pistaOrigem,
+		int time) {
+	int velocidade = (int) (pistaOrigem->getVelocidade() / 3.6);
+	int tempo = (int) (pistaOrigem->getTamanho() / velocidade);
+	int timestamp = tempo + time;
+	Evento* evento = new Evento(timestamp, 3, 0, pistaOrigem, NULL, carro);
+	this->clock->adicionaEvento(evento);
 }
-
 
 void Sistema::consomeEventoMudancaSemaforo(Evento* ev) {
 	Pista* pista = ev->getPistaOrigem();
@@ -156,12 +163,6 @@ void Sistema::consomeChegadaSemaforo(Evento* ev) {
 			&& carro->getDestino()->getEspacoRestante() > carro->getTamanho()) {
 		geraEventoTrocaPista(carro, pista, ev->getTimeStamp());
 	}
-}
-
-
-
-void Sistema::geraEventoNovoCarro() {
-
 }
 
 void Sistema::incluiEventoClock(Evento* evento) {

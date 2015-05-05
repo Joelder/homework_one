@@ -9,6 +9,7 @@
 #define SISTEMA_SISTEMA_H_
 #include "../Clock/Clock.cpp"
 #include "GeradorPistas.cpp"
+#include "../Eventos/EventoTrocaPista.cpp"
 class Sistema {
 protected:
 	GeradorPistas* gerador;
@@ -68,11 +69,6 @@ public:
 	 * Evento que faz as verificações para gerar o evento troca de pista ou gerar um novo Chegada Semaforo
 	 * */
 	void consomeChegadaFinalFila(Evento* ev);
-
-	/*
-	 * Gera o evento novo carro
-	 * */
-	void geraEventoNovoCarro();
 
 	/*
 	 * Gera o evento chegada semaforo

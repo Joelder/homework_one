@@ -33,8 +33,8 @@ class FilaEnc : public ListaEnc<T> {
 			Elemento<T>* pointer_transfer = new Elemento<T>(dado, NULL);
 			this->tail->setProximo(pointer_transfer);
 			this->tail = pointer_transfer;
+			this->size++;
 		}
-		this->size++;
 	}
 
 

@@ -53,9 +53,7 @@ Lista<Pista*>* Pista::getPistasConectadas() {
 }
 
 void Pista::adicionarCarroPista(Carro* carro) {
-	if (carro->getTamanho() > this->espacoRestante) {
-		return;
-	} else {
+	if (carro->getTamanho() < this->espacoRestante) {
 		FilaEnc<Carro*>::inclui(carro);
 		this->espacoRestante -= carro->getTamanho();
 	}

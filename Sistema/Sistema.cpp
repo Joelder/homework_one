@@ -116,7 +116,20 @@ void Sistema::consomeEventoTrocaPista(EventoTrocaPista* evento,
 		geraEventoDeslocamentoChegadaSemaforo(pistaOrigem->primeiro(),
 				pistaOrigem, time);
 	}
-	geraEventoChegadaCarro(pistaDestino, time);
+	if (pistaDestino->getTamanho() == 300) {
+		int proporcao = pistaDestino->getPistaConectadaProporcao();
+		Pista* pista = pistaDestino->getPistasConectadas()[proporcao];
+		pistaDestino->ultimo()->setDestino(pista);
+		if (pistaDestino->size == 1) {
+			geraEventoChegadaSemaforo(pistaDestino->ultimo(), pistaDestino,
+					time);
+		} else {
+			geraEventoChegadaFila(pistaDestino->ultimo(), pistaDestino, time);
+		}
+
+	} else {
+		geraEventoChegadaCarro(pistaDestino, time);
+	}
 }
 
 void Sistema::geraEventoChegadaCarro(Pista* pista, int timestamp) {

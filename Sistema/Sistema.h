@@ -32,7 +32,7 @@ public:
 	/*
 	 * Big Bang e no inicio fez se os eventos
 	 * */
-	void geraEventosIniciais();
+	void geraEventosIniciais(int time);
 
 	void consomeEvento(Evento* ev);
 
@@ -48,7 +48,8 @@ public:
 	/*
 	 * Evento Troca um carro de uma pista para outra
 	 * */
-	void consomeEventoTrocaPista(EventoTrocaPista* ev, Pista* pistaOrigem, int time);
+	void consomeEventoTrocaPista(EventoTrocaPista* ev, Pista* pistaOrigem,
+			int time);
 
 	/*
 	 * Evento troca o semaforo de uma pista, pode gerar evento troca de pista
@@ -78,7 +79,8 @@ public:
 	/*
 	 * Gera o evento chegada semaforo
 	 * */
-	void geraEventoDeslocamentoChegadaSemaforo(Carro* carro, Pista* pista, int time);
+	void geraEventoDeslocamentoChegadaSemaforo(Carro* carro, Pista* pista,
+			int time);
 
 	/*
 	 * Gera o evento chegada semaforo
@@ -94,6 +96,16 @@ public:
 	 * Gera o evento troca pista
 	 * */
 	void geraEventoTrocaPista(Carro* carro, Pista* pistaOrigem, int timestamp);
+
+	/*
+	 * Gera o evento troca semaforo
+	 * */
+	void geraEventoTrocaSemaforo(Pista* pista, int timestamp);
+
+	/*
+	 * Gera Semaforos
+	 * */
+	void geraSemaforos(int time);
 
 	/*
 	 * Inclui no clock o evento recém gerado

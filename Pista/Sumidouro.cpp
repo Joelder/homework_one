@@ -8,9 +8,10 @@
 #ifndef SUMIDOURO_CPP
 #define SUMIDOURO_CPP
 #include "Sumidouro.h"
+using namespace std;
 
-Sumidouro::Sumidouro(int proporcao, int tamanho, int velocidade, bool semaforo) :
-		Pista(0, tamanho, velocidade, true) {
+Sumidouro::Sumidouro(int proporcao, int tamanho, int velocidade, bool semaforo, string nome) :
+		Pista(0, tamanho, velocidade, true, nome) {
 }
 
 Sumidouro::~Sumidouro() {

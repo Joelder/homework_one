@@ -8,10 +8,11 @@
 #ifndef PISTA_SUMIDOURO_H_
 #define PISTA_SUMIDOURO_H_
 #include "Pista.cpp"
+using namespace std;
 
 class Sumidouro: public Pista {
 public:
-	Sumidouro(int proporcao, int tamanho, int velocidade, bool semaforo);
+	Sumidouro(int proporcao, int tamanho, int velocidade, bool semaforo, string nome);
 	virtual ~Sumidouro();
 };
 

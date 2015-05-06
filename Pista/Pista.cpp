@@ -10,14 +10,17 @@
 #include <stdlib.h>
 #include "Pista.h"
 #include "../util/GeradorAleatorios.cpp"
+using namespace std;
 
-Pista::Pista(int proporcao, int tamanho, int velocidade, bool semaforo) {
+Pista::Pista(int proporcao, int tamanho, int velocidade, bool semaforo,
+		string nome) {
 	this->proporcao = proporcao;
 	this->tamanho = tamanho;
 	this->espacoRestante = tamanho;
 	this->velocidade = velocidade;
 	this->semaforo = semaforo;
 	this->pistasConectadas = new Lista<Pista*>;
+	this->nome = nome;
 }
 
 Pista::~Pista() {
@@ -105,6 +108,10 @@ int Pista::getPistaConectadaProporcao() {
 		}
 	}
 
+}
+
+string Pista::getNome() {
+	return this->nome;
 }
 
 #endif /* PISTA_CPP */

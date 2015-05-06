@@ -10,6 +10,7 @@
 #include "../Estruturas/FilaEnc.hpp"
 #include "../Estruturas/Lista.hpp"
 #include "../Carro/Carro.cpp"
+using namespace std;
 
 class Pista: public FilaEnc<Carro*> {
 
@@ -23,10 +24,11 @@ protected:
 	int velocidade;
 	bool semaforo;
 	Lista<Pista*>* pistasConectadas;
+	string nome;
 
 
 public:
-	Pista(int proporcao, int tamanho, int velocidade, bool semaforo);
+	Pista(int proporcao, int tamanho, int velocidade, bool semaforo, string nome);
 	virtual ~Pista();
 
 	int getProporcao();
@@ -52,6 +54,8 @@ public:
 	int getEspacoRestante();
 
 	int getPistaConectadaProporcao();
+
+	string getNome();
 
 };
 

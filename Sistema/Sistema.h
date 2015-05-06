@@ -25,6 +25,8 @@ public:
 	 * */
 	void criaPistas();
 
+	void run();
+
 	/*
 	 * Método que cria o carro
 	 * */

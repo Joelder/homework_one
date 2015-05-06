@@ -35,16 +35,16 @@ Carro* Sistema::criaCarro(int tamanho) {
 void Sistema::geraEventosIniciais() {
 
 	geraSemaforos(this->tempo);
-	/*
-	 GeradorAleatorios* geradorAleatorio = new GeradorAleatorios();
-	 srand(time(NULL));
-	 Pista* origem = this->gerador->getPistaO1Leste();
-	 int proporcao = origem->getPistaConectadaProporcao();
-	 Pista* destino = origem->getPistasConectadas()->getPosicao(proporcao);
-	 Evento* evento = new Evento(8, 1, geradorAleatorio->gerarTamanhoCarro(),
-	 origem, destino, NULL);
-	 incluiEventoClock(evento);
-	 */
+	geraNovosCarros(this->tempo);
+}
+
+void Sistema::run() {
+	while (this->clock->getEventos()->size > 0) {
+		Evento* evento = retiraEventoClock();
+		std::cout << "id do evento: " << evento->getId() << std::endl;
+		std::cout << "timestamp: " << evento->getTimeStamp() << std::endl;
+		consomeEvento(evento);
+	}
 }
 
 void Sistema::consomeEvento(Evento* ev) {
@@ -73,6 +73,8 @@ void Sistema::consomeEventoNovoCarro(Evento* ev) {
 	Pista* pistaOrigem = ev->getPistaOrigem();
 	carro->setDestino(ev->getPistaDestino());
 	pistaOrigem->adicionarCarroPista(carro);
+	std::cout << "Novo carro entrou no sistema, pista: "
+			<< pistaOrigem->getNome() << std::endl;
 	if (pistaOrigem->size == 1) {
 		geraEventoChegadaSemaforo(carro, pistaOrigem, timeEvento);
 	} else {
@@ -104,6 +106,8 @@ void Sistema::consomeChegadaFinalFila(Evento* ev) {
 		geraEventoChegadaSemaforo(carro, pistaOrigem, timestamp);
 	} else {
 		carro->setCarroChegou();
+		std::cout << "Carro chegou no semaforo da pista: "
+				<< pistaOrigem->getNome() << std::endl;
 	}
 }
 
@@ -118,6 +122,8 @@ void Sistema::consomeEventoTrocaPista(EventoTrocaPista* evento,
 	Pista* pistaDestino = evento->getCarro()->getDestino();
 	pistaOrigem->transferirCarro(pistaDestino);
 	if (pistaOrigem->size > 0 && pistaOrigem->primeiro()->getCarroChegou()) {
+		std::cout << "Carro transferido da pista: " << pistaOrigem->getNome()
+				<< " para pista: " << pistaDestino->getNome() << std::endl;
 		geraEventoDeslocamentoChegadaSemaforo(pistaOrigem->primeiro(),
 				pistaOrigem, time);
 	}
@@ -141,9 +147,6 @@ void Sistema::geraEventoChegadaCarro(Pista* pista, int timestamp) {
 	int velocidade = (int) (pista->getVelocidade() / 3.6);
 	int tempo = (int) (pista->getTamanho() / velocidade);
 	int time = timestamp + tempo;
-	std::cout << "timestamp: " << timestamp << std::endl;
-	std::cout << "tempo: " << tempo << std::endl;
-	std::cout << "time: " << time << std::endl;
 	Evento* evento = new Evento(time, 2, 0, NULL, pista, NULL);
 	incluiEventoClock(evento);
 }
@@ -166,13 +169,21 @@ void Sistema::geraEventoChegadaSemaforo(Carro* carro, Pista* pistaOrigem,
 void Sistema::consomeEventoMudancaSemaforo(Evento* ev) {
 	Pista* pista = ev->getPistaOrigem();
 	pista->setSemaforo();
-	if (pista->primeiro()->getCarroChegou()) {
-		geraEventoTrocaPista(pista->primeiro(), pista, ev->getTimeStamp());
+	std::cout << "Semaforo da pista: " << pista->getNome() << " mudou"
+			<< std::endl;
+
+	if (pista->size != 0) {
+		if (pista->primeiro()->getCarroChegou()) {
+			geraEventoTrocaPista(pista->primeiro(), pista, ev->getTimeStamp());
+		}
 	}
+
 }
 
 void Sistema::consomeEventoChegadaCarro(Evento* ev) {
 	Pista* pista = ev->getPistaDestino();
+	std::cout << "O carro chegou no final da pista: " << pista->getNome()
+			<< std::endl;
 	pista->retirarCarroPista();
 }
 
@@ -180,6 +191,8 @@ void Sistema::consomeChegadaSemaforo(Evento* ev) {
 	Pista* pista = ev->getPistaOrigem();
 	Carro* carro = ev->getCarro();
 	carro->setCarroChegou();
+	std::cout << "Carro chegou no semaforo da pista: " << pista->getNome()
+			<< std::endl;
 	if (pista->getSemaforo()
 			&& carro->getDestino()->getEspacoRestante() > carro->getTamanho()) {
 		geraEventoTrocaPista(carro, pista, ev->getTimeStamp());
@@ -265,8 +278,8 @@ void Sistema::geraNovosCarros(int tempo) {
 }
 
 void Sistema::geraSemaforos(int tempo) {
-	int valorCiclos = (int) (tempo / 155);
-	int a = 0;
+	int valorCiclos = (int) (tempo / 117);
+	int a = 1;
 	Pista* O1Leste = this->gerador->getPistaO1Leste();
 	Pista* S1Norte = this->gerador->getPistaS1Norte();
 	Pista* C1Oeste = this->gerador->getPistaC1Oeste();
@@ -275,28 +288,28 @@ void Sistema::geraSemaforos(int tempo) {
 	Pista* S2Norte = this->gerador->getPistaS2Norte();
 	Pista* L1Oeste = this->gerador->getPistaL1Oeste();
 	Pista* N2Sul = this->gerador->getPistaN2Sul();
-	for (int i = 0; i < valorCiclos; i++) {
+	for (int i = 0; i <= valorCiclos; i++) {
 		geraEventoTrocaSemaforo(O1Leste, a);
 		geraEventoTrocaSemaforo(C1Leste, a);
-		a += 60;
+		a += 45;
 		geraEventoTrocaSemaforo(O1Leste, a);
 		geraEventoTrocaSemaforo(C1Leste, a);
 
 		geraEventoTrocaSemaforo(S1Norte, a);
 		geraEventoTrocaSemaforo(S2Norte, a);
-		a += 10;
+		a += 8;
 		geraEventoTrocaSemaforo(S1Norte, a);
 		geraEventoTrocaSemaforo(S2Norte, a);
 
 		geraEventoTrocaSemaforo(C1Oeste, a);
 		geraEventoTrocaSemaforo(L1Oeste, a);
-		a += 60;
+		a += 45;
 		geraEventoTrocaSemaforo(C1Oeste, a);
 		geraEventoTrocaSemaforo(L1Oeste, a);
 
 		geraEventoTrocaSemaforo(N1Sul, a);
 		geraEventoTrocaSemaforo(N2Sul, a);
-		a += 25;
+		a += 19;
 		geraEventoTrocaSemaforo(N1Sul, a);
 		geraEventoTrocaSemaforo(N2Sul, a);
 	}

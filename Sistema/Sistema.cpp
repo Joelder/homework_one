@@ -320,7 +320,7 @@ void Sistema::geraSemaforos(int tempo) {
 
 		geraEventoTrocaSemaforo(S1Norte, a);
 		geraEventoTrocaSemaforo(S2Norte, a);
-		a += 16;
+		a += 25;
 		geraEventoTrocaSemaforo(S1Norte, a);
 		geraEventoTrocaSemaforo(S2Norte, a);
 
@@ -332,7 +332,7 @@ void Sistema::geraSemaforos(int tempo) {
 
 		geraEventoTrocaSemaforo(N1Sul, a);
 		geraEventoTrocaSemaforo(N2Sul, a);
-		a += 40;
+		a += 45;
 		geraEventoTrocaSemaforo(N1Sul, a);
 		geraEventoTrocaSemaforo(N2Sul, a);
 	}

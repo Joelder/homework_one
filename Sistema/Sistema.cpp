@@ -39,11 +39,14 @@ void Sistema::geraEventosIniciais() {
 }
 
 void Sistema::run() {
-	while (this->clock->getEventos()->size > 0) {
+	int answer = 1;
+	while (this->clock->getEventos()->size > 0 && answer == 1) {
 		Evento* evento = retiraEventoClock();
 		std::cout << "id do evento: " << evento->getId() << std::endl;
 		std::cout << "timestamp: " << evento->getTimeStamp() << std::endl;
 		consomeEvento(evento);
+		//std::cout << "continuar? (1|0)";
+		//cin >> answer;
 	}
 }
 
@@ -90,6 +93,8 @@ void Sistema::geraEventoChegadaFila(Carro* carro, Pista* pistaOrigem,
 	int tamanhofila = pistaOrigem->getTamanho()
 			- pistaOrigem->getEspacoRestante();
 	int timestamp = tempo + time;
+	std::cout << "O carro da pista: " << pistaOrigem->getNome()
+			<< " chega no final da fila as " << timestamp << std::endl;
 	Evento* evento = new Evento(timestamp, 5, tamanhofila, pistaOrigem, NULL,
 			carro);
 	incluiEventoClock(evento);
@@ -132,6 +137,8 @@ void Sistema::consomeEventoTrocaPista(EventoTrocaPista* evento,
 		Lista<Pista*>* pistas = pistaDestino->getPistasConectadas();
 		Pista* pista = pistas->getPosicao(proporcao);
 		pistaDestino->ultimo()->setDestino(pista);
+		std::cout << "Carro transferido da pista: " << pistaOrigem->getNome()
+						<< " para pista: " << pistaDestino->getNome() << std::endl;
 		if (pistaDestino->size == 1) {
 			geraEventoChegadaSemaforo(pistaDestino->ultimo(), pistaDestino,
 					time);
@@ -162,6 +169,8 @@ void Sistema::geraEventoChegadaSemaforo(Carro* carro, Pista* pistaOrigem,
 	int velocidade = (int) (pistaOrigem->getVelocidade() / 3.6);
 	int tempo = (int) (pistaOrigem->getTamanho() / velocidade);
 	int timestamp = tempo + time;
+	std::cout << "O carro da pista: " << pistaOrigem->getNome()
+					<< " chega no semaforo as " << timestamp << std::endl;
 	Evento* evento = new Evento(timestamp, 3, 0, pistaOrigem, NULL, carro);
 	incluiEventoClock(evento);
 }
@@ -183,7 +192,7 @@ void Sistema::consomeEventoMudancaSemaforo(Evento* ev) {
 void Sistema::consomeEventoChegadaCarro(Evento* ev) {
 	Pista* pista = ev->getPistaDestino();
 	std::cout << "O carro chegou no final da pista: " << pista->getNome()
-			<< std::endl;
+			<< " no tempo:" << ev->getTimeStamp() << std::endl;
 	pista->retirarCarroPista();
 }
 
@@ -192,9 +201,10 @@ void Sistema::consomeChegadaSemaforo(Evento* ev) {
 	Carro* carro = ev->getCarro();
 	carro->setCarroChegou();
 	std::cout << "Carro chegou no semaforo da pista: " << pista->getNome()
-			<< std::endl;
+			<< " no tempo: " << ev->getTimeStamp() << std::endl;
 	if (pista->getSemaforo()
 			&& carro->getDestino()->getEspacoRestante() > carro->getTamanho()) {
+		std::cout << "Gerou o evento troca pista" << std::endl;
 		geraEventoTrocaPista(carro, pista, ev->getTimeStamp());
 	}
 }

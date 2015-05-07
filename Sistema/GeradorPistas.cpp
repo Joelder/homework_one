@@ -116,7 +116,7 @@ Pista* GeradorPistas::getPistaN1Sul() {
 	if (this->pistaN1Sul == NULL) {
 		this->pistaN1Sul = new Fonte(0, 500, 60, false, "PistaN1Sul");
 		this->pistaN1Sul->conectarPistas(this->getPistaC1Leste(),
-				this->getPistaC1Oeste(), this->getPistaS1Sul());
+				this->getPistaO1Oeste(), this->getPistaS1Sul());
 	}
 	return this->pistaN1Sul;
 }
@@ -143,7 +143,7 @@ Pista* GeradorPistas::getPistaS2Norte() {
 	if (this->pistaS2Norte == NULL) {
 		this->pistaS2Norte = new Fonte(1, 500, 40, false, "PistaS2Norte");
 		this->pistaS2Norte->conectarPistas(this->getPistaL1Leste(),
-				this->getPistaS2Sul(), this->getPistaC1Oeste());
+				this->getPistaN2Norte(), this->getPistaC1Oeste());
 	}
 	return this->pistaS2Norte;
 }
@@ -152,7 +152,7 @@ Pista* GeradorPistas::getPistaL1Oeste() {
 	if (this->pistaL1Oeste == NULL) {
 		this->pistaL1Oeste = new Fonte(1, 400, 30, false, "PistaL1Oeste");
 		this->pistaL1Oeste->conectarPistas(this->getPistaN2Norte(),
-				this->getPistaC1Leste(), this->getPistaS2Sul());
+				this->getPistaC1Oeste(), this->getPistaS2Sul());
 	}
 	return this->pistaL1Oeste;
 }

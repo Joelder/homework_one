@@ -1,33 +1,36 @@
-/*
- * Sistema.h
- *
- *  Created on: May 1, 2015
- *      Author: home
- */
-
 #ifndef SISTEMA_SISTEMA_H_
 #define SISTEMA_SISTEMA_H_
 #include "../Clock/Clock.cpp"
 #include "GeradorPistas.cpp"
 #include "../Eventos/EventoTrocaPista.cpp"
+/*
+ * Sistema, classe responsavel pela criação do programa
+ * */
 class Sistema {
-protected:
+
+public:
 	GeradorPistas* gerador;
 	Clock* clock;
 	int tempo;
-public:
 	int entradaCarros;
 	int saidaCarros;
-
+	/*
+	 * Construtor do sistema
+	 * @param tempo O tempo que o programa irá rodar
+	 */
 	Sistema(int tempo);
-
+	/*
+	 * Destrutor do sistema
+	 * */
 	virtual ~Sistema();
 
 	/*
-	 * Big Bang e no inicio fez se as pistas
+	 * todas as pistas são geradas
 	 * */
 	void criaPistas();
-
+	/*
+	 * executa o sistema
+	 */
 	void run();
 
 	/*
@@ -36,15 +39,13 @@ public:
 	Carro* criaCarro(int tamanho);
 
 	/*
-	 * Big Bang e no inicio fez se os eventos
+	 * Gera os eventos iniciais
 	 * */
 	void geraEventosIniciais();
-
-	void consomeEvento(Evento* ev);
-
 	/*
 	 * Classifica e roteia o Evento que chegou no sistema
 	 * */
+	void consomeEvento(Evento* ev);
 
 	/*
 	 * Evento Cria Novo carro, coloca na pista, gera novo evento Chegada Semaforo
@@ -128,10 +129,17 @@ public:
 	 * Inclui no clock o evento recém gerado
 	 * */
 	void incluiEventoClock(Evento* evento);
-
+	/*
+	 * retira evento do clock
+	 * */
 	Evento* retiraEventoClock();
-
+	/*
+	 * retorna o clock
+	 * */
 	Clock* getClock();
+	/*
+	 * retorna o gerador
+	 * */
 	GeradorPistas* getGerador();
 };
 

@@ -126,9 +126,13 @@ void Sistema::consomeEventoTrocaPista(EventoTrocaPista* evento,
 		Pista* pistaOrigem, int time) {
 	Pista* pistaDestino = evento->getCarro()->getDestino();
 	pistaOrigem->transferirCarro(pistaDestino);
+	std::cout << "Carro transferido da pista: " << pistaOrigem->getNome()
+					<< " para pista: " << pistaDestino->getNome() << std::endl;
+	std::cout << "A pista: " << pistaOrigem->getNome() << "ficou com: " << pistaOrigem->getEspacoRestante() << "metros" << std::endl;
+	std::cout << "A pista: " << pistaDestino->getNome() << "ficou com: " << pistaDestino->getEspacoRestante() << "metros" << std::endl;
+
 	if (pistaOrigem->size > 0 && pistaOrigem->primeiro()->getCarroChegou()) {
-		std::cout << "Carro transferido da pista: " << pistaOrigem->getNome()
-				<< " para pista: " << pistaDestino->getNome() << std::endl;
+		std::cout << "Gerou Deslocamento: " << std::endl;
 		geraEventoDeslocamentoChegadaSemaforo(pistaOrigem->primeiro(),
 				pistaOrigem, time);
 	}
@@ -137,8 +141,6 @@ void Sistema::consomeEventoTrocaPista(EventoTrocaPista* evento,
 		Lista<Pista*>* pistas = pistaDestino->getPistasConectadas();
 		Pista* pista = pistas->getPosicao(proporcao);
 		pistaDestino->ultimo()->setDestino(pista);
-		std::cout << "Carro transferido da pista: " << pistaOrigem->getNome()
-						<< " para pista: " << pistaDestino->getNome() << std::endl;
 		if (pistaDestino->size == 1) {
 			geraEventoChegadaSemaforo(pistaDestino->ultimo(), pistaDestino,
 					time);
@@ -146,6 +148,7 @@ void Sistema::consomeEventoTrocaPista(EventoTrocaPista* evento,
 			geraEventoChegadaFila(pistaDestino->ultimo(), pistaDestino, time);
 		}
 	} else {
+		std::cout << "Gerou evento chegada final carro na pista: " << pistaDestino->getNome() << std::endl;
 		geraEventoChegadaCarro(pistaDestino, time);
 	}
 }
@@ -181,11 +184,15 @@ void Sistema::consomeEventoMudancaSemaforo(Evento* ev) {
 	std::cout << "Semaforo da pista: " << pista->getNome() << " mudou"
 			<< std::endl;
 
-	if (pista->size != 0) {
-		if (pista->primeiro()->getCarroChegou()) {
-			geraEventoTrocaPista(pista->primeiro(), pista, ev->getTimeStamp());
-		}
+
+	if(pista->getSemaforo()){
+		if (pista->size != 0) {
+				if (pista->primeiro()->getCarroChegou()) {
+					geraEventoTrocaPista(pista->primeiro(), pista, ev->getTimeStamp());
+				}
+			}
 	}
+
 
 }
 

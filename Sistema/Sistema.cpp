@@ -314,25 +314,25 @@ void Sistema::geraSemaforos(int tempo) {
 	for (int i = 0; i <= valorCiclos; i++) {
 		geraEventoTrocaSemaforo(O1Leste, a);
 		geraEventoTrocaSemaforo(C1Leste, a);
-		a += 45;
+		a += 90;
 		geraEventoTrocaSemaforo(O1Leste, a);
 		geraEventoTrocaSemaforo(C1Leste, a);
 
 		geraEventoTrocaSemaforo(S1Norte, a);
 		geraEventoTrocaSemaforo(S2Norte, a);
-		a += 8;
+		a += 16;
 		geraEventoTrocaSemaforo(S1Norte, a);
 		geraEventoTrocaSemaforo(S2Norte, a);
 
 		geraEventoTrocaSemaforo(C1Oeste, a);
 		geraEventoTrocaSemaforo(L1Oeste, a);
-		a += 45;
+		a += 90;
 		geraEventoTrocaSemaforo(C1Oeste, a);
 		geraEventoTrocaSemaforo(L1Oeste, a);
 
 		geraEventoTrocaSemaforo(N1Sul, a);
 		geraEventoTrocaSemaforo(N2Sul, a);
-		a += 19;
+		a += 40;
 		geraEventoTrocaSemaforo(N1Sul, a);
 		geraEventoTrocaSemaforo(N2Sul, a);
 	}

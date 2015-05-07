@@ -12,12 +12,13 @@
 #include "../Eventos/EventoTrocaPista.cpp"
 class Sistema {
 protected:
-	int entradaCarros;
-	int saidaCarros;
 	GeradorPistas* gerador;
 	Clock* clock;
 	int tempo;
 public:
+	int entradaCarros;
+	int saidaCarros;
+
 	Sistema(int tempo);
 
 	virtual ~Sistema();

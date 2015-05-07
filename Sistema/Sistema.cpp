@@ -15,6 +15,8 @@
 
 Sistema::Sistema(int tempo) {
 	this->tempo = tempo;
+	this->entradaCarros = 0;
+	this->saidaCarros = 0;
 	criaPistas();
 	this->clock = new Clock();
 }
@@ -48,6 +50,8 @@ void Sistema::run() {
 		//std::cout << "continuar? (1|0)";
 		//cin >> answer;
 	}
+	std::cout << "Entrada de carros sistema: " << this->entradaCarros << std::endl;
+	std::cout << "Saida de carros sistema: " << this->saidaCarros << std::endl;
 }
 
 void Sistema::consomeEvento(Evento* ev) {
@@ -76,6 +80,7 @@ void Sistema::consomeEventoNovoCarro(Evento* ev) {
 	Pista* pistaOrigem = ev->getPistaOrigem();
 	carro->setDestino(ev->getPistaDestino());
 	pistaOrigem->adicionarCarroPista(carro);
+	this->entradaCarros++;
 	std::cout << "Novo carro entrou no sistema, pista: "
 			<< pistaOrigem->getNome() << std::endl;
 	if (pistaOrigem->size == 1) {
@@ -201,6 +206,7 @@ void Sistema::consomeEventoChegadaCarro(Evento* ev) {
 	std::cout << "O carro chegou no final da pista: " << pista->getNome()
 			<< " no tempo:" << ev->getTimeStamp() << std::endl;
 	pista->retirarCarroPista();
+	this->saidaCarros++;
 }
 
 void Sistema::consomeChegadaSemaforo(Evento* ev) {
